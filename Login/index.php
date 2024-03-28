@@ -26,7 +26,7 @@ require_once 'includes/login_view.inc.php';
 
         <button type="submit" name="register">Log in</button>
     </form>
-
+    <p>Don't have an account? <a href="../registration/index.php">Sign up</a></p>
     <?php
     check_login_errors();
     ?>

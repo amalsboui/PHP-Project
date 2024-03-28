@@ -26,6 +26,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
             $errors["login_incorrect"] = "Incorrect login info!";
         }
 
+
+
         require_once 'config_session.inc.php';
 
         if($errors)
@@ -41,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         $_SESSION["user_last_name"]=htmlspecialchars($result["last_name"]);
         $_SESSION["last_regeneration"]=time();
 
-        header("Location:../index.php?login=success");
+        header("Location:../../Addjob/index.php");
 
         $pdo=null;
         die();

@@ -21,6 +21,12 @@ require_once 'inc/signup_view.inc.php';
         <label for="last_name">Last Name:</label>
         <input type="text" id="last_name" name="last_name" required>
 
+        <label for="user_type">Choose your role:</label>   
+        <select id="user_type" name="user_type" required>
+            <option value="job_seeker">Job seeker</option>
+            <option value="recruiter">Recruiter</option>
+        </select>
+
         <label for="email">Email :</label>
         <input type="email" id="email" name="email" required>
 
