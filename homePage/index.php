@@ -12,36 +12,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
- <!--    Side Navigation -->
-     <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
-        
-        <button class="w3-bar-item w3-button" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
-        <a href="#" class="w3-bar-item w3-button">Log in</a>
-        <a href="#" class="w3-bar-item w3-button">Registration</a>
-        <a href="#" class="w3-bar-item w3-button">Add a job offer</a>
-        
-    </nav>
-
-
-    
-    <header class="w3-container w3-theme-d4 w3-padding d-flex flex-column" id="myHeader">
-
-        <div class="d-flex flex-row justify-content-between" >
-            <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme-d4"></i> 
-            <form class="d-flex col-4" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
-        </div>
-
-        <div class="w3-center">
-          <h4>......</h4>
-          <h1 class="w3-xxxlarge w3-animate-bottom">WeOffer</h1>
-        </div>
-    </header>   
  
-   <?php //include("../view/header.php"); ?>  
+   <?php include("view/header.php"); ?>  
 
     <main class=" container d-flew flex-row justify-content-evenly">
       <?php foreach($jobs as $job): ?>
@@ -53,7 +25,6 @@
           <ul class="list-group list-group-flush ">
             <li class="list-group-item w3-theme-l5"><?php echo("🧱".$job["entreprise"] )?></li>
             <li class="list-group-item w3-theme-l5"><?php echo("📍".$job["location"] )?></li>
-            <!-- <li class="list-group-item w3-theme-l5">A third item</li> -->
           </ul>
           <a href="#" class="btn btn-primary w3-theme-d4">Apply</a>
         </div>
@@ -63,10 +34,7 @@
 
     </main>
 
-
   <hr>
-
-
 
   <div class="w3-center">
     <!-- Pagination -->
@@ -85,23 +53,8 @@
   <br>
 
 
-    <!-- Footer -->
-    <?php include("../view/footer.php"); ?>
+  <!-- Footer -->
+  <?php include("view/footer.php"); ?>
   
-    <script>
-        // Side navigation
-        function w3_open() {
-          var x = document.getElementById("mySidebar");
-          x.style.width = "100%";
-          x.style.fontSize = "40px";
-          x.style.paddingTop = "10%";
-          x.style.display = "block";
-        }
-        function w3_close() {
-          document.getElementById("mySidebar").style.display = "none";
-        }
-    </script>   
-    
-    
 </body>
 </html>
