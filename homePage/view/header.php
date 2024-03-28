@@ -9,25 +9,25 @@
 
     <!-- Header -->
 
-    <header class="w3-container w3-theme-d4 w3-padding d-flex flex-column" id="myHeader">
+    <header class="w3-container w3-theme-d4 w3-padding d-flex flex-column" >
     <div class="d-flex flex-row justify-content-between" >
-    <div class="w3-bar w3-theme-d4 w3-left-align ">
+    <div class="w3-bar w3-theme-d4 w3-left-align w3-xlarge">
         <p class="w3-bar-item ">Logo mtaa weoffer</p>
-        <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>
-        <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
-        <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Price</a>
+        <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">Log in</a>
+        <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Register</a>
+        <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a>
         <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
-            <div class="w3-dropdown-hover w3-hide-small">
+           <!--  <div class="w3-dropdown-hover w3-hide-small">
                 <button class="w3-button" title="Notifications">Dropdown <i class="fa fa-caret-down"></i></button>     
                 <div class="w3-dropdown-content w3-card-4 w3-bar-block">
                 <a href="#" class="w3-bar-item w3-button">Link</a>
                 <a href="#" class="w3-bar-item w3-button">Link</a>
                 <a href="#" class="w3-bar-item w3-button">Link</a>
                 </div>
-            </div>
+            </div> -->
     </div>
         
-        <form class="d-flex col-4" role="search">
+        <form class="d-flex col-4 " role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-light" type="submit">Search</button>
         </form>
@@ -35,7 +35,7 @@
 
     <div class="w3-center">
         <h4>....</h4>
-        <h1 class="w3-xxxlarge w3-animate-bottom">WeOffer</h1>
+        <h1 class="w3-xxlarge w3-animate-bottom">WeOffer</h1>
     </div>
 </header>  
 <!-- Side Navigation  hedhi nhotouha on small screens mezelt mech mrigla-->
