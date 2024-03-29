@@ -1,6 +1,24 @@
 <?php
-require_once 'includes/config_session.inc.php';
-require_once 'includes/login_view.inc.php';
+session_start();
+function check_login_errors()
+{
+    if(isset($_SESSION["errors_login"]))
+    {
+        echo '<div class="error-container">';
+        
+        $errors=$_SESSION["errors_login"];
+
+        echo"<br>";
+        unset($_SESSION["errors_login"]);
+
+        foreach($errors as $error){
+            echo '<p class="form-error">' . $error . '</p>';
+            }
+        unset($_SESSION["errors_login"]);
+
+        echo '</div>';
+        }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +31,7 @@ require_once 'includes/login_view.inc.php';
 <body>
     <div class="formulaire"> 
     <h1>Login</h1>
-    <form action="includes/login.inc.php" method="post">
+    <form action="login.php" method="post" novalidate>
 
         <label for="name">Name :</label>
         <input type="text" id="name" name="name" required>
@@ -32,4 +50,5 @@ require_once 'includes/login_view.inc.php';
     ?>
 </div>
 </body>
+<script src="script.js"></script>
 </html>

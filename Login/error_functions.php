@@ -1,6 +1,4 @@
 <?php
-declare(strict_types=1);
-
 function is_input_empty(string $name,string $last_name,string $password)
 {
     if (empty($name)||empty($last_name)||empty($password)) {

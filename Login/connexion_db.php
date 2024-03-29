@@ -24,7 +24,4 @@
             }
             return self::$_bdd;
         }
-
-
-
     }
