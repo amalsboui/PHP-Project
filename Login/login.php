@@ -8,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
     $password = $_POST["password"];
 
     try {
-        require_once 'connexion_db.php';
+        require_once '../repeated_files/connexion_db.php';
         require_once 'user_db.php';
         require_once 'error_functions.php';
 

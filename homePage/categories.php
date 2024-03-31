@@ -1,4 +1,7 @@
-const jobCategories = [
+<?php
+//We need this so that the filter stays selected after submission
+ 
+$jobCategories = [
     "Administration",
     "Agriculture",
     "Arts and Design",
@@ -50,14 +53,4 @@ const jobCategories = [
     "Travel",
     "Utilities"  
 ];
-
-
-const categorySelect = document.getElementById("category");
-
-
-jobCategories.forEach(category => {
-    const option = document.createElement("option");
-    option.text = category;
-    option.value = category;
-    categorySelect.add(option);
-});
+?>

@@ -4,9 +4,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 {
         $position=$_POST["position"];
         $category=$_POST["category"];
+        $employment_type=$_POST["employment_type"];
         $entreprise=$_POST["entreprise"];
         $location=$_POST["location"];
         $description=$_POST["description"];
+        
 
     try {
         require_once 'dbh.inc.php';
@@ -24,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 
 
         $errors=[];
-        if(is_input_empty($position,$category,$entreprise,$location,$description)){
+        if(is_input_empty($position,$category,$employment_type,$entreprise,$location,$description)){
             $errors["empty_input"]="Fill in all fields !";     
         }
      
@@ -37,13 +39,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         }
         print_r($_POST);
 
-        $sql="INSERT INTO jobs (position,category,entreprise,location,description,recruters_id) VALUES(:position,:category,:entreprise,:location,:description,:recruters_id)";
+        $sql="INSERT INTO jobs (position,category,employment_type,entreprise,location,description,recruters_id) VALUES(:position,:category,:employment_type,:entreprise,:location,:description,:recruters_id)";
         $stmt=$pdo->prepare($sql);
 
        
         
         $stmt->bindParam(":position",$position);
         $stmt->bindParam(":category",$category);
+        $stmt->bindParam(":employment_type",$employment_type);
         $stmt->bindParam(":entreprise",$entreprise); 
         $stmt->bindParam(":location",$location);        
         $stmt->bindParam(":description",$description); 

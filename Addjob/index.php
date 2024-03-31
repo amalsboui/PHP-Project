@@ -21,9 +21,16 @@ require_once 'inc/job_view.inc.php';
         <input type="text" id="position" name="position" required>
 
         <label for="category">Job Category:</label>
-        
         <select id="category" name="category" >
             <option value="">Select a category</option>
+        </select>
+
+        <label for="employment_type">Employment Type:</label>
+        <select id="employment_type" name="employment_type" >
+            <option value="fulltime">Select a type</option>
+            <option value="fulltime">Full-time</option>
+            <option value="parttime">Part-time</option>
+            <option value="internship">Internship</option>
         </select>
 
         <label for="entreprise">Entreprise:</label>
@@ -42,6 +49,6 @@ require_once 'inc/job_view.inc.php';
     ?>
 </div>
 
-<script src=script.js></script>
+<script src=../repeated_files/categories.js></script>
 </body>
 </html>
