@@ -31,11 +31,18 @@ select,input{
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
-}
-select{
     width: 100%;
+    
+}
+
+input{
+    padding-right: 2px;
+}
+
+select{
+    
     height: 40px;
-    /*color: #283b28;*/
+    
 }
 button{
     background-color: #4cacaf;
@@ -58,4 +65,18 @@ button:hover {
     color: red; 
     font-size: 17px;
     margin-top: 5px; 
+}
+
+.parent_div.success input{
+    border-color: #09c372;
+    
+}
+
+.parent_div.error input{
+    border-color: #ff3860;
+}
+
+.parent_div .error {
+    color: #ff3860;
+    padding-bottom: 15px;
 }

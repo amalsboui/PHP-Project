@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if($_SERVER["REQUEST_METHOD"] === "POST")
 {
@@ -7,43 +8,46 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
     $password = $_POST["password"];
 
     try {
-        require_once 'dbh.inc.php';
-        require_once 'login_model.inc.php';
-        require_once 'login_contr.inc.php';
+        require_once '../repeated_files/connexion_db.php';
+        require_once 'user_db.php';
+        require_once 'error_functions.php';
+
+        
+
+        $pdo = connectDB::getInstance();
         //ERROR HANDLERS
-        $errors=[];
+
+        $errors = [];
+
         if(is_input_empty($name,$last_name,$password)){
-            $errors["empty_input"]="Fill in all fields !";     
+            $errors[] = "Fill in all fields!";    
         }
+        else{
+
         $result=get_user($pdo,$name,$last_name);
 
         if(is_username_wrong($result))
         {
-            $errors["login_incorrect"] = "Incorrect login info!";
+            $errors[] = "Incorrect login info!";
         }
         if(!is_username_wrong($result) && is_password_wrong($password, $result["password"]))
         {
-            $errors["login_incorrect"] = "Incorrect login info!";
+            $errors[] = "Incorrect login info!";
         }
-
-
-
-        require_once 'config_session.inc.php';
-
-        if($errors)
-        {
-            $_SESSION["errors_login"] = $errors;
-
-            header("Location:../index.php");
-            die();
-        }
+    }
         
+
+        if (!empty($errors)) {
+        $_SESSION["errors_login"] = $errors;
+        header("Location: index.php");
+        exit();
+        }
+
         $_SESSION["user_id"]=$result["id"];
         $_SESSION["user_name"]=htmlspecialchars($result["name"]);
         $_SESSION["user_last_name"]=htmlspecialchars($result["last_name"]);
-        $_SESSION["last_regeneration"]=time();
 
-        header("Location:../../Addjob/index.php");
+        header("Location:../Addjob/index.php");
 
         $pdo=null;
         die();
@@ -53,23 +57,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
             die("Query failed: ".$e->getMessage());
         }
     }else{
-        header("Location:../index.php");
+        header("Location:index.php");
         die();
     }
 
-
-    
-        
-
-
-
-
-
-
-
-
-
-
-
-
-  

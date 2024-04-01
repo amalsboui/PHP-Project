@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-indigo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     
 </head>
 
@@ -9,33 +11,35 @@
 
     <!-- Header -->
 
-    <header class="w3-container w3-theme-d4 w3-padding d-flex flex-column" >
-    <div class="d-flex flex-row justify-content-between" >
-    <div class="w3-bar w3-theme-d4 w3-left-align w3-xlarge">
-        <p class="w3-bar-item ">Logo mtaa weoffer</p>
-        <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">Log in</a>
-        <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Register</a>
-        <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a>
+    <header class="w3-container w3-theme-d4 w3-padding d-flex flex-column " id="myHeader">
+    <div class="d-flex flex-row justify-content-between mt-2" >
+    <div class="w3-bar w3-theme-d4 w3-left-align ">
+        <p class="w3-bar-item " style=" height: 70px; width: 90px; ">
+                <img src="view/logo.png" alt="Logo" style="width: 100%; height: 100%; transform: translateY(-8px);"></p>
+        <p class="w3-bar-item w3-large" >WeOffer</p>
+        <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>
+        <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
+        <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Price</a>
         <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
-           <!--  <div class="w3-dropdown-hover w3-hide-small">
+            <div class="w3-dropdown-hover w3-hide-small">
                 <button class="w3-button" title="Notifications">Dropdown <i class="fa fa-caret-down"></i></button>     
                 <div class="w3-dropdown-content w3-card-4 w3-bar-block">
                 <a href="#" class="w3-bar-item w3-button">Link</a>
                 <a href="#" class="w3-bar-item w3-button">Link</a>
                 <a href="#" class="w3-bar-item w3-button">Link</a>
                 </div>
-            </div> -->
+            </div>
     </div>
         
-        <form class="d-flex col-4 " role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex col-4" role="search" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
+            <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-light" type="submit">Search</button>
         </form>
     </div>
 
     <div class="w3-center">
         <h4>....</h4>
-        <h1 class="w3-xxlarge w3-animate-bottom">WeOffer</h1>
+        <h1 class="w3-xxxlarge w3-animate-bottom">WeOffer</h1>
     </div>
 </header>  
 <!-- Side Navigation  hedhi nhotouha on small screens mezelt mech mrigla-->
