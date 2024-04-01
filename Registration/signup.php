@@ -1,5 +1,15 @@
 <?php
 
+function isEmailTaken(object $pdo, string $email) {
+    $query = "SELECT email FROM users WHERE email = :email";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(":email",$email);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $result !== false;
+}
+
 if($_SERVER["REQUEST_METHOD"] === "POST")
 {
         $name=$_POST["name"];
@@ -12,26 +22,33 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
     try {
         
         require_once '../repeated_files/connexion_db.php';
-        require_once 'error_functions.php';
+        //require_once 'error_functions.php';
         //ERROR HANDLERS
         
         $pdo = connectDB::getInstance();
         session_start();
 
-        $errors=[];
+        
+        //$errors=[];
+
+        /*
         if(is_input_empty($name,$last_name,$email,$password,$confirm,$user_type)){
             $errors[]="Fill in all fields !";     
         }
         
         if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
             $errors[] ="Please enter a valid email address";
+        }*/
+        
+        if(isEmailTaken($pdo,$email)){    
+            echo "<script>alert('This email is already taken'); 
+            window.location.href = 'index.php';</script>";
+            exit();
+            /* kif l user yclicki al ok mtaa l alert yaawed yredirectih lel page mtaa registration*/ 
         }
         
-        if(isEmailTaken($pdo,$email))
-        {
-            $errors[] ="Email already taken ";
-        }
-        
+
+        /*
         if(isNameandlastNameTaken($pdo,$name,$last_name))
         {
             $errors[] ="Name and last name already taken ";
@@ -48,9 +65,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
            header("Location:../index.php");
             die();
         }
-        print_r($_POST);
+        print_r($_POST);*/
 
-        
+        else{
         $sql = "INSERT INTO users (name, last_name, user_type, email, password) VALUES (:name, :last_name, :user_type, :email, :password)";
         $stmt = $pdo->prepare($sql);
 
@@ -66,21 +83,28 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         //echo "SQL Query: $sql<br>";
         $stmt->execute();
 
+        /*  //rigelha hedhi 9ali mayaarfch l variable $result
         $_SESSION["user_id"]=$result["id"];
         $_SESSION["user_name"]=htmlspecialchars($result["name"]);
-        $_SESSION["user_last_name"]=htmlspecialchars($result["last_name"]);
+        $_SESSION["user_last_name"]=htmlspecialchars($result["last_name"]);*/
 
-        header("Location:index.php?registration=success");
+        //header("Location:index.php?registration=success");
+
+        echo "<script>alert('Registered successfully');
+        window.location.href = 'index.php';</script>";
+        exit();
 
         $pdo=null;
         $stmt=null;
-        die();
+        }
     }catch(PDOException $e)
         {
             error_log("PDOException: " . $e->getMessage());
             
         }
     }else{
+
+        /*mafhemtech l else hedhi win bech thez w chnou trati*/
         header("Location:index.php");
         die();
     }

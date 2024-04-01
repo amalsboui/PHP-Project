@@ -7,6 +7,7 @@
 w ken shih ma yaffichi chay */
 
 const name_element=document.getElementById('name');
+const lastName_element=document.getElementById('last_name');
 const email_element=document.getElementById('email');
 const pw_element=document.getElementById('password');
 const confirm_element=document.getElementById('confirm');
@@ -56,6 +57,7 @@ function validateInputs(){
 
     //delete white spaces in the beginning and  the end of the input
     const user_name=name_element.value.trim();
+    const last_name=lastName_element.value.trim();
     const email=email_element.value.trim();
     const pw=pw_element.value.trim();
     const confirm=confirm_element.value.trim();
@@ -64,11 +66,20 @@ function validateInputs(){
     //check all the inputs
 
     if(user_name === ''){
-        setErrorMessage(name_element,"please enter a user name");
+        setErrorMessage(name_element,"Please enter a user name");
         return false;
     }
     else{
         unsetErrorMessage(name_element);
+    }
+
+
+    if(last_name === ''){
+        setErrorMessage(lastName_element,"Please enter your last name");
+        return false;
+    }
+    else{
+        unsetErrorMessage(lastName_element);
     }
 
 
@@ -86,7 +97,7 @@ function validateInputs(){
 
 
     if(pw === ''){
-        setErrorMessage(pw_element,"please enter a password");
+        setErrorMessage(pw_element,"Please enter a password");
         return false;
     }
     else if(!isValidPassword(pw)){
@@ -98,7 +109,7 @@ function validateInputs(){
     }
 
     if(confirm === ''){
-        setErrorMessage(confirm_element,"please confirm your password");
+        setErrorMessage(confirm_element,"Please confirm your password");
         return false;
     }
     else if(pw!== confirm){
