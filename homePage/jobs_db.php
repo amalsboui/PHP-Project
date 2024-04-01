@@ -8,5 +8,20 @@
     $statement->closeCursor();
    // print_r ($jobs);
     //echo gettype($jobs);//type of $jobs array of arrays each row is an array
+    function calculate_time($created)
+    {
+            $timeDifference = time() - strtotime($created);
 
+            $hoursAgo = floor($timeDifference / (60 * 60));
+            $daysAgo = floor($timeDifference / (24 * 60 * 60));
+            $monthsAgo = floor($daysAgo / 30); 
+
+            if ($monthsAgo >= 1) {
+                echo "$monthsAgo months ago";
+            } elseif ($daysAgo >= 1) {
+                echo "$daysAgo days ago";
+            } else {
+                echo "$hoursAgo hours ago";
+            }
+    }
 ?>

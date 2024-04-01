@@ -41,10 +41,10 @@ function check_job_errors()
 
         <label for="employment_type">Employment Type:</label>
         <select id="employment_type" name="employment_type" >
-            <option value="fulltime">Select a type</option>
-            <option value="fulltime">Full-time</option>
-            <option value="parttime">Part-time</option>
-            <option value="internship">Internship</option>
+            <option value="">Select a type</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Internship">Internship</option>
         </select>
 
         <label for="entreprise">Entreprise:</label>

@@ -22,7 +22,7 @@
 
 
    <!--Filters-->
-<div class="container">
+<div class="container mt-3">
     <h2>Filters</h2>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
         <div class="row">
@@ -59,15 +59,22 @@
 <main class=" container d-flew flex-row justify-content-evenly">
       <?php foreach($jobs as $job): ?>
       <div class="card w3-theme-l5">
-        
-        <div class="card-body">
+  
+        <div class="card-body d-flex flex-column">
           <div class="card-title" ><?php echo("🚀".$job["position"] )?></div>
-          <p class="card-text"><?php echo($job["description"] )?></p>
+          <span class="text-muted font-italic "><?php calculate_time($job["created_at"])?></span>
+          <div class="tags mb-2 mt-1">
+              <span class="badge bg-secondary"><?php echo $job["employment_type"] ?></span>
+              <span class="badge bg-primary"><?php echo $job["category"] ?></span>
+          </div>
+          <p class="card-text"><?php echo(strlen($job["description"]) > 284 ? substr($job["description"], 0, 284) . '...' : $job["description"]);?></p>
           <ul class="list-group list-group-flush ">
             <li class="list-group-item w3-theme-l5"><?php echo("🧱".$job["entreprise"] )?></li>
             <li class="list-group-item w3-theme-l5"><?php echo("📍".$job["location"] )?></li>
           </ul>
-          <a href="#" class="btn btn-primary w3-theme-d4">Apply</a>
+         
+          <a href="../jobdetails/index.php?id=<?php echo $job['id']; ?>" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">See More</a>
+        
         </div>
 
       </div>
