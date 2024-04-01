@@ -19,10 +19,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 
         $errors = [];
 
+        /*
         if(is_input_empty($name,$last_name,$password)){
             $errors[] = "Fill in all fields!";    
         }
-        else{
+        else{*/
 
         $result=get_user($pdo,$name,$last_name);
 
@@ -34,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         {
             $errors[] = "Incorrect login info!";
         }
-    }
+    
         
 
         if (!empty($errors)) {

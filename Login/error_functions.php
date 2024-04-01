@@ -1,4 +1,6 @@
 <?php
+
+/*
 function is_input_empty(string $name,string $last_name,string $password)
 {
     if (empty($name)||empty($last_name)||empty($password)) {
@@ -7,7 +9,8 @@ function is_input_empty(string $name,string $last_name,string $password)
     else{
         return false;
     }
-}
+}*/
+
 function is_username_wrong(bool|array $result)
 {
     if (!$result) {
