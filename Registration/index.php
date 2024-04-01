@@ -1,6 +1,20 @@
 <?php
-require_once 'inc/config_session.inc.php';
-require_once 'inc/signup_view.inc.php';
+session_start();
+function check_signup_errors()
+{
+    if(isset($_SESSION["errors_signup"]))
+    {
+        echo '<div class="error-container">';
+        $errors=$_SESSION["errors_signup"];
+
+        echo"<br>";
+        foreach($errors as $error){
+            echo '<p class="form-error">' . $error . '</p>';
+        }
+        unset($_SESSION["errors_signup"]);
+        echo '</div>';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +27,7 @@ require_once 'inc/signup_view.inc.php';
 <body>
     <div class="formulaire"> 
     <h1>Registration</h1>
-    <form action="inc/signup.inc.php" method="post">
+    <form action="signup.php" method="post">
 
         <label for="name">Name :</label>
         <input type="text" id="name" name="name" required>
@@ -42,6 +56,6 @@ require_once 'inc/signup_view.inc.php';
         check_signup_errors();
     ?>
 </div>
-
+<script src="verify_inputs.js"></script>
 </body>
 </html>

@@ -11,14 +11,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         
 
     try {
-        require_once 'dbh.inc.php';
-        require_once 'job_contr.inc.php';
+        require_once '../repeated_files/connexion_db.php';
+        require_once 'error_functions.php';
         //ERROR HANDLERS
+        $pdo = connectDB::getInstance();
 
-        require_once 'config_session.inc.php';
-
+        session_start();
+        
         if (!isset($_SESSION['user_id'])) {
-            header("Location: ../../login/index.php");
+            header("Location: ../login/index.php");
             exit(); 
         }
 
@@ -27,14 +28,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 
         $errors=[];
         if(is_input_empty($position,$category,$employment_type,$entreprise,$location,$description)){
-            $errors["empty_input"]="Fill in all fields !";     
+            $errors[]="Fill in all fields !";     
         }
      
         
 
         if($errors){
             $_SESSION["errors_job"]=$errors;
-           header("Location:../index.php");
+           header("Location:index.php");
             die();
         }
         print_r($_POST);
@@ -54,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 
         $stmt->execute();
 
-        header("Location:../index.php?addingjob=success");
+        header("Location:index.php?addingjob=success");
 
         $pdo=null;
         $stmt=null;

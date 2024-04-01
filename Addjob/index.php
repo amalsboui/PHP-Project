@@ -1,6 +1,20 @@
 <?php
-require_once 'inc/config_session.inc.php';
-require_once 'inc/job_view.inc.php';
+
+function check_job_errors()
+{
+    if(isset($_SESSION["errors_job"]))
+    {
+        echo '<div class="error-container">';
+        $errors=$_SESSION["errors_job"];
+
+        echo"<br>";
+        foreach($errors as $error){
+            echo '<p class="form-error">' . $error . '</p>';
+        }
+        unset($_SESSION["errors_job"]);
+        echo '</div>';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +29,7 @@ require_once 'inc/job_view.inc.php';
 
 <div class="formulaire"> 
     <h1>Post a Job Offer</h1>
-    <form action="inc/submit_job.inc.php" method="post">
+    <form action="submit_job.php" method="post">
 
         <label for="position">Job Title:</label>
         <input type="text" id="position" name="position" required>
