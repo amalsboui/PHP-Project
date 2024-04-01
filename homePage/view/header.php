@@ -11,10 +11,12 @@
 
     <!-- Header -->
 
-    <header class="w3-container w3-theme-d4 w3-padding d-flex flex-column" id="myHeader">
-    <div class="d-flex flex-row justify-content-between" >
+    <header class="w3-container w3-theme-d4 w3-padding d-flex flex-column " id="myHeader">
+    <div class="d-flex flex-row justify-content-between mt-2" >
     <div class="w3-bar w3-theme-d4 w3-left-align ">
-        <p class="w3-bar-item ">Logo mtaa weoffer</p>
+        <p class="w3-bar-item " style=" height: 70px; width: 90px; ">
+                <img src="view/logo.png" alt="Logo" style="width: 100%; height: 100%; transform: translateY(-8px);"></p>
+        <p class="w3-bar-item w3-large" >WeOffer</p>
         <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>
         <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
         <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Price</a>
