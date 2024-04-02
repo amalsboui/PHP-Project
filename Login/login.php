@@ -50,12 +50,16 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         $_SESSION["user_name"]=htmlspecialchars($result["name"]);
         $_SESSION["user_last_name"]=htmlspecialchars($result["last_name"]);
 
-       // header("Location:../Addjob/index.php");
-        
-        echo "<script>alert('Login successful');
-        window.location.href = '../homePage/index.php';</script>";
-        exit();
-
+        if($result["user_type"]=="admin")
+        {
+            header("Location:../ADmin Dashboard/homepage/index.php");
+        }
+        else{
+            echo "<script>alert('Login successful');
+            window.location.href = '../homePage/index.php';</script>";
+             //header("Location:../homePage/index.php");
+             exit();
+        }
         $pdo=null;
         die();
 
