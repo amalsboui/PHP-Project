@@ -15,8 +15,7 @@
 <body>
  
    <?php session_start(); ?>
-   <?php include("view/header.php"); ?> 
+   <?php include("view/header_private.php"); ?> 
    <?php include "categories.php" ?>
    
    <?php include("body.php"); ?>
-
