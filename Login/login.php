@@ -50,7 +50,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         $_SESSION["user_name"]=htmlspecialchars($result["name"]);
         $_SESSION["user_last_name"]=htmlspecialchars($result["last_name"]);
 
-        header("Location:../Addjob/index.php");
+       // header("Location:../Addjob/index.php");
+        
+        echo "<script>alert('Login successful');
+        window.location.href = '../homePage/index.php';</script>";
+        exit();
 
         $pdo=null;
         die();

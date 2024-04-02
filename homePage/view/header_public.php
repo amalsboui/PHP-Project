@@ -32,31 +32,35 @@
         <div class="w3-center">
             <h1 class="w3-xxlarge w3-animate-bottom">WeOffer</h1>
         </div>
-    </header>  
-        <!-- Side Navigation  hedhi nhotouha on small screens mezelt mech mrigla-->
-        <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
-            <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i> 
-            <button class="w3-bar-item w3-button" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
-            <a href="../Login/index.php" class="w3-bar-item w3-button">Log in</a>
-            <a href="../Registration/index.php" class="w3-bar-item w3-button">Registration</a>
-            <a href="../Addjob/index.php" class="w3-bar-item w3-button">Add a job offer</a>
-        </nav>
-
-
-<script>
-    // Side navigation
-    function w3_open() {
-        var x = document.getElementById("mySidebar");
-        x.style.width = "100%";
-        x.style.fontSize = "40px";
-        x.style.paddingTop = "10%";
-        x.style.display = "block";
-    }
-    function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-    }
-</script> 
+    </header> 
     
+
+
+    
+    <!-- Side Navigation  hedhi nhotouha on small screens mezelt mech mrigla-->
+
+    <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
+        <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i> 
+        <button class="w3-bar-item w3-button" onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
+        <a href="../Login/index.php" class="w3-bar-item w3-button">Log in</a>
+        <a href="../Registration/index.php" class="w3-bar-item w3-button">Registration</a>
+        <a href="../Addjob/index.php" class="w3-bar-item w3-button">Add a job offer</a>
+    </nav>
+
+    <script>
+        // Side navigation
+        function w3_open() {
+            var x = document.getElementById("mySidebar");
+            x.style.width = "100%";
+            x.style.fontSize = "40px";
+            x.style.paddingTop = "10%";
+            x.style.display = "block";
+        }
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+    </script> 
+        
 
 
     

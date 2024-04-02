@@ -61,9 +61,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 
         //header("Location:index.php?registration=success");
 
-       /* echo "<script>alert('Registered successfully');
-        window.location.href = 'index.php';</script>";
-        exit();*/
+        echo "<script>alert('Registered successfully');
+        window.location.href = '../homePage/index.php';</script>";
+        exit();
 
         $pdo=null;
         $stmt=null;
@@ -75,7 +75,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         }
     }else{
 
-        /*mafhemtech l else hedhi win bech thez w chnou trati*/
         header("Location:index.php");
         die();
     }
