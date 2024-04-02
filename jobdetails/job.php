@@ -5,10 +5,10 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
         $pdo = connectDB::getInstance();
 
     
-        if(isset($_GET['id'])) {
-            $jobId = $_GET["id"];
+        if(isset($_GET['id_job'])) {
+            $jobId = $_GET["id_job"];
         
-            $query = "SELECT * FROM jobs WHERE id =:jobId";
+            $query = "SELECT * FROM jobs WHERE id_job =:jobId";
             $statement = $pdo->prepare($query);
             $statement->bindParam(":jobId",$jobId);
             $statement->execute();

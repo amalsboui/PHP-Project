@@ -49,7 +49,7 @@
                 <input type="text" class="form-control" id="location" name="location" placeholder="Enter location">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary mt-3">Apply Filters</button>
+        <button type="submit" class="btn btn-primary w3-theme-d4 mt-3">Apply Filters</button>
     </form>
 </div>
 
@@ -64,7 +64,7 @@
           <div class="card-title" ><?php echo("🚀".$job["position"] )?></div>
           <span class="text-muted font-italic "><?php calculate_time($job["created_at"])?></span>
           <div class="tags mb-2 mt-1">
-              <span class="badge bg-secondary"><?php echo $job["employment_type"] ?></span>
+              <span class="badge bg-secondary " ><?php echo $job["employment_type"] ?></span>
               <span class="badge bg-primary"><?php echo $job["category"] ?></span>
           </div>
           <p class="card-text"><?php echo(strlen($job["description"]) > 284 ? substr($job["description"], 0, 284) . '...' : $job["description"]);?></p>
@@ -73,7 +73,7 @@
             <li class="list-group-item w3-theme-l5"><?php echo("📍".$job["location"] )?></li>
           </ul>
          
-          <a href="../jobdetails/index.php?id=<?php echo $job['id']; ?>" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">See More</a>
+          <a href="../jobdetails/index.php?id=<?php echo $job['id_job']; ?>" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">See More</a>
         
         </div>
 
