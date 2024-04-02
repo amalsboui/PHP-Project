@@ -16,7 +16,7 @@
 
                 <div class="w3-bar w3-theme-d4 w3-left-align w3-xlarge">
                     <p class="w3-bar-item " style=" height: 70px; width: 90px; ">
-                        <img src="view/logo.png" alt="Logo" style="width: 100%; height: 100%; transform: translateY(-8px);">
+                        <img src="../../repeated_files/logo.png" alt="Logo" style="width: 100%; height: 100%; transform: translateY(-8px);">
                     </p>
                     <a href="../Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">Log in</a>
                     <a href="../Registration/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Register</a>

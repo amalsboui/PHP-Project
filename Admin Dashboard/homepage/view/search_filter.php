@@ -1,0 +1,1 @@
+<?php include_once '../../../homePage/view/search_filter.php' ?>

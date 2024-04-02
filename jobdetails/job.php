@@ -5,12 +5,12 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
         $pdo = connectDB::getInstance();
 
     
-        if(isset($_GET['id_job'])) {
-            $jobId = $_GET["id_job"];
+        if(isset($_GET['id'])) {
+            $id_job = $_GET["id"];
         
-            $query = "SELECT * FROM jobs WHERE id_job =:jobId";
+            $query = "SELECT * FROM jobs WHERE id_job =:id";
             $statement = $pdo->prepare($query);
-            $statement->bindParam(":jobId",$jobId);
+            $statement->bindParam(":id",$id_job);
             $statement->execute();
             $job = $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -33,11 +33,18 @@ function calculate_time($created)
             $daysAgo = floor($timeDifference / (24 * 60 * 60));
             $monthsAgo = floor($daysAgo / 30); 
 
-            if ($monthsAgo >= 1) {
+            if ($monthsAgo == 1) {
+                echo "1 month ago";
+            }elseif ($monthsAgo > 1) {
                 echo "$monthsAgo months ago";
-            } elseif ($daysAgo >= 1) {
+            }elseif ($daysAgo == 1) {
+                echo "1 day ago";
+            }elseif ($daysAgo > 1) {
                 echo "$daysAgo days ago";
-            } else {
+            }elseif ($hoursAgo==1){
+                echo "1 hour ago";
+            }
+            else {
                 echo "$hoursAgo hours ago";
             }
     }

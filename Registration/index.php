@@ -1,21 +1,19 @@
 <?php
 session_start();
-/*function check_signup_errors()
-{
-    if(isset($_SESSION["errors_signup"]))
-    {
-        echo '<div class="error-container">';
-        $errors=$_SESSION["errors_signup"];
 
-        echo"<br>";
-        foreach($errors as $error){
-            echo '<p class="form-error">' . $error . '</p>';
-        }
-        unset($_SESSION["errors_signup"]);
+function check_signup_errors()
+{
+    if (isset($_SESSION["error_signup"])) {
+        echo '<div class="error-container">';
+        $error = $_SESSION["error_signup"];
+        echo "<br>";
+        echo '<p class="form-error">' . $error . '</p>';
+        unset($_SESSION["error_signup"]);
         echo '</div>';
     }
-}*/
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,6 +43,7 @@ session_start();
 
         <label for="user_type">Choose your role:</label>   
         <select id="user_type" name="user_type" required>
+            <option value="">Select</option>
             <option value="job_seeker">Job seeker</option>
             <option value="recruiter">Recruiter</option>
         </select>
@@ -73,7 +72,7 @@ session_start();
         <button type="submit" name="register" id="register">Sign up</button>
     </form>
     <?php
-        //check_signup_errors();
+        check_signup_errors();
     ?>
 </div>
 <script src="verify_inputs.js"></script>

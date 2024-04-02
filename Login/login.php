@@ -1,15 +1,23 @@
 <?php
 session_start();
+function get_user(object $pdo,string $email)
+{
+    $query="SELECT * FROM users WHERE email = :email;";
+    $stmt=$pdo->prepare($query);
+    $stmt->bindParam(":email",$email);
+    $stmt->execute();
+
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
 
 if($_SERVER["REQUEST_METHOD"] === "POST")
 {
-    $name = $_POST["name"];
-    $last_name = $_POST["last_name"];
+    $email = $_POST["email"];
     $password = $_POST["password"];
 
     try {
         require_once '../repeated_files/connexion_db.php';
-        require_once 'user_db.php';
         require_once 'error_functions.php';
 
         
@@ -19,19 +27,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 
         $errors = [];
 
-        /*
-        if(is_input_empty($name,$last_name,$password)){
-            $errors[] = "Fill in all fields!";    
-        }
-        else{*/
+        $result=get_user($pdo,$email);
 
-        $result=get_user($pdo,$name,$last_name);
-
-        if(is_username_wrong($result))
+        if(is_email_wrong($result))
         {
             $errors[] = "Incorrect login info!";
         }
-        if(!is_username_wrong($result) && is_password_wrong($password, $result["password"]))
+        if(!is_email_wrong($result) && is_password_wrong($password, $result["password"]))
         {
             $errors[] = "Incorrect login info!";
         }
@@ -44,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         exit();
         }
 
-        $_SESSION["user_id"]=$result["id"];
+        $_SESSION["user_id"]=$result["id_user"];
         $_SESSION["user_name"]=htmlspecialchars($result["name"]);
         $_SESSION["user_last_name"]=htmlspecialchars($result["last_name"]);
 

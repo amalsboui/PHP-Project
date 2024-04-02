@@ -16,11 +16,18 @@
             $daysAgo = floor($timeDifference / (24 * 60 * 60));
             $monthsAgo = floor($daysAgo / 30); 
 
-            if ($monthsAgo >= 1) {
+            if ($monthsAgo == 1) {
+                echo "1 month ago";
+            }elseif ($monthsAgo > 1) {
                 echo "$monthsAgo months ago";
-            } elseif ($daysAgo >= 1) {
+            }elseif ($daysAgo == 1) {
+                echo "1 day ago";
+            }elseif ($daysAgo > 1) {
                 echo "$daysAgo days ago";
-            } else {
+            }elseif ($hoursAgo==1){
+                echo "1 hour ago";
+            }
+            else {
                 echo "$hoursAgo hours ago";
             }
     }

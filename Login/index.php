@@ -34,20 +34,6 @@ function check_login_errors()
     <form action="login.php" method="post" novalidate>
 
         <div class="parent_div">
-            <label for="name">Name :</label>
-            <input type="text" id="name" name="name" required>
-            <div class="error"></div>
-            <div class="success"></div>
-        </div>
-
-        <div class="parent_div">
-            <label for="last_name">Last Name :</label>
-            <input type="text" id="last_name" name="last_name" required>
-            <div class="error"></div>
-            <div class="success"></div>
-        </div>
-
-        <div class="parent_div">
             <label for="email">Email :</label>
             <input type="text" id="email" name="email" required>
             <div class="error"></div>
