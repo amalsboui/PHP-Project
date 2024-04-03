@@ -23,8 +23,8 @@
                     <div class="w3-dropdown-hover w3-hide-small">
                         <button class="w3-button" title="Notifications">Users <i class="fa fa-caret-down"></i></button>     
                         <div class="w3-dropdown-content w3-card-4 w3-bar-block">
-                        <a href="#" class="w3-bar-item w3-button">Recruiters</a>
-                        <a href="#" class="w3-bar-item w3-button">Job Seekers</a>
+                        <a href="../users/recruiters/index.php" class="w3-bar-item w3-button">Recruiters</a>
+                        <a href="../users/jobseekers/index.php" class="w3-bar-item w3-button">Job Seekers</a>
                         </div>
                     </div>
                 </div>

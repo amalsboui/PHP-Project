@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<?php include("../homePage/view/header.php"); ?>
+<?php include("../homePage/view/header_private.php"); ?>
 
   <div class="w3-padding-64 w3-content " id="contact">
     <h2 >Contact Us</h2>

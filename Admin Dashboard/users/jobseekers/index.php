@@ -84,13 +84,13 @@
                                                     <td>
                                                         <div class="widget-26-job-title">
                                                             <a href="#"><?php echo $jobseeker["name"] ." ". $jobseeker["last_name"]?></a>
-                                                            <p class="m-0"><a href="#" class="employer-name">Axiom Corp.</a> <span class="text-muted time"><?php calculate_time($jobseeker["created_at"])?></span></p>
+                                                            <p class="m-0"><a href="#" class="employer-name"><?php echo $jobseeker["job"]?></a> <span class="text-muted time"><?php calculate_time($jobseeker["created_at"])?></span></p>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="widget-26-job-info">
                                                             <p class="type m-0">Full-Time</p>
-                                                            <p class="text-muted m-0">in <span class="location">London, UK</span></p>
+                                                            <p class="text-muted m-0">in <span class="location"><?php echo $jobseeker["city"]?></span></p>
                                                         </div>
                                                     </td>
                                                     <td>

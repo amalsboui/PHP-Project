@@ -71,6 +71,7 @@ function check_signup_errors()
 
         <button type="submit" name="register" id="register">Sign up</button>
     </form>
+    <p>Already have an account? <a href="../Login/index.php">Log in</a></p>
     <?php
         check_signup_errors();
     ?>

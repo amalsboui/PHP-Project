@@ -43,7 +43,7 @@
             if(isset($_GET["search"])) {
                 $search = $_GET["search"];
 
-                $query .= " AND (name LIKE :search OR last_name LIKE :search OR city LIKE :search )";
+                $query .= " AND (name LIKE :search OR last_name LIKE :search OR city LIKE :search OR job LIKE :search )";
             }
 /*
             if(isset($_GET["category"], $_GET["employment_type"], $_GET["location"])) {
