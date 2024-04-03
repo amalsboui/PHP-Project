@@ -19,21 +19,24 @@ session_start();
 
 $userId =/* $_SESSION["user_id"]*/3 ;
 $jobs=get_jobs($userId);
+//var_dump($jobs);
+echo '<div class="d-flex justify-content-center row m-4">';
 foreach($jobs as $job){
     ?>
-    <div class="card" style="width: 18rem;">
-   <h5 class="card-title"> <?php echo $job["position"]?></h5>
+    <div class="card p-2 m-3 " >
+   <h5 class="d-block font-weight-bold"> <?php echo $job["position"]?></h5>
       <h6 class="card-subtitle mb-2 text-body-secondary">
         <?php echo $job["entreprise"]."  📍  ".$job["location"]."  📅   ".$job["date_added"] ?>
      </h6>
       <p class="card-text">  <?php echo$job["description"] ?></p>
-      <form action="job_applications.php" method="post">
+      <form action="../jobApplications/index.php" method="post">
         <input type="hidden"  name= "id_job" value=<?php echo$job['id_job'] ?> >
         <input type="submit">
       </form>
 
     </div>
-    <div class="row mt-2 g-1">
+
+   <!--<div class="row mt-2 g-1">
         <div class="col-md-3">
             <div class="card p-2">
                 <div class="text-right"> <small>Full Time</small> </div>
@@ -43,11 +46,14 @@ foreach($jobs as $job){
                     <div class="d-flex justify-content-between mt-3"> <span>$40,000</span> <button class="btn btn-sm btn-outline-dark">Apply Now</button> </div>
                 </div>
             </div>
-        </div>
+        </div> !-->
   </div>
+
   <?php 
 }
+
 ?>
+</div>
   <?php include("../global/view/footer.php"); ?>
 
 </body>

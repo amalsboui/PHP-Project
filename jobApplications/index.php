@@ -6,9 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
+    <?php  include "applications_db.php";
     session_start();
-    
+    $id_job=$_POST["id_job"];
+    $applications=get_applications($id_job);
+   var_dump($applications);
+
+
     ?>
 
 

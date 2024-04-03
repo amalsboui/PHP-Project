@@ -1,9 +1,8 @@
-
 <?php 
 require('../global/config.php'); 
-    function get_jobs(int $id){
+    function get_applications(int $id){
     $db = connectDB::getInstance();
-    $query='SELECT id_job,position,SUBSTRING(description,1,120) as description,entreprise,location,id_recruiter,date_added FROM jobs WHERE id_recruiter=?';
+    $query='SELECT users.id_user, users.name, users.last_name, users.email, application.motivation from users,application where application.id_jobseeker=users.id_user AND application.id_job=?';
     $statement=$db->prepare($query);
     $statement->execute([$id]);
     $jobs=$statement->fetchAll(PDO::FETCH_ASSOC);
