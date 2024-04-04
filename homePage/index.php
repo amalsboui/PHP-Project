@@ -15,7 +15,7 @@
 <?php session_start(); 
 
   if(isset($_SESSION)){
-    if($_SESSION["authentificated"])
+    if($_SESSION["authenticated"])
     {include("view/header_admin.php");}
     else{include("view/header_private.php");}  
   }
