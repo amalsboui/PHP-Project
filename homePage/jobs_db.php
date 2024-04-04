@@ -1,5 +1,5 @@
 <?php
-    require_once '../repeated_files/connexion_db.php';
+    include '../repeated_files/connexion_db.php';
     $db = connectDB::getInstance();
     $query='SELECT * FROM jobs';
     $statement=$db->prepare($query);

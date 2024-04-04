@@ -1,4 +1,4 @@
-<?php require_once 'jobs_db.php'?>
+<?php require 'jobs_db.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +14,10 @@
 
 <?php session_start(); 
 
-  if(isset($_SESSION["user_id"])){
-    include("view/header_private.php");
+  if(isset($_SESSION)){
+    if($_SESSION["authentificated"])
+    {include("view/header_admin.php");}
+    else{include("view/header_private.php");}  
   }
   else{
     include("view/header_public.php");

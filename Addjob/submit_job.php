@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 
         $stmt->execute();
 
-        header("Location:index.php?addingjob=success");
+        header("Location:../homePage/index.php");
 
         $pdo=null;
         $stmt=null;
@@ -65,7 +65,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
             die("Query failed: ".$e->getMessage());
         }
     }else{
-        echo "erruerrrrrr";
-        //header("Location:../index.php");
+        header("Location:index.php");
         die();
     }

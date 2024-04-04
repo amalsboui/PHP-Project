@@ -9,9 +9,12 @@
 </head>
 <body>
     <?php include "../repeated_files/connexion_db.php" ?>
-    <?php include_once '../homePage/view/header.php';?>
+    <?php include_once '../homePage/view/header_private.php';?>
     <?php include_once '../homePage/view/search_filter.php';?>
-    <?php include_once 'job.php'?>
+    <?php
+    session_start();
+    include_once 'job.php'
+    ?>
     
 
 
@@ -30,7 +33,7 @@
             <li class="list-group-item w3-theme-l5"><?php echo("📍".$job["location"] )?></li>
           </ul>
           <p class="card-text"><?php echo($job["description"] )?></p>
-          <a href="../application/index.php" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">Apply</a>
+          <a href="<?php echo( isset($_SESSION) ? "../application/index.php" : "../login/index.php" ); ?>" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">Apply</a>
     </main>
 
     <?php include_once '../homePage/view/footer.php';?>

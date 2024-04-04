@@ -53,6 +53,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         if($result["user_type"]=="admin")
         {
             header("Location:../ADmin Dashboard/homepage/index.php");
+            $_SESSION["authenticated"] = true;
         }
         else{
             echo "<script>alert('Login successful');
@@ -67,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         {
             die("Query failed: ".$e->getMessage());
         }
-    }else{
+}else{
         header("Location:index.php");
         die();
     }
