@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION["authenticated"])) {
+    header("Location: ../../login/index.php");
+    exit();
+}?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +16,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 
-    <?php include("../../homepage/view/header.php"); ?> 
-   <?php include "../../homepage/view/search_filter.php" ?>
-   <?php require_once "users_db.php" ?>
+   <?php include("../../../homePage/view/header_admin.php"); ?> 
+   <?php include ("../../../homePage/view/search_filter.php") ;?>
+   <?php require_once ("users_db.php") ;?>
 
     
 

@@ -16,7 +16,7 @@
 
                 <div class="w3-bar w3-theme-d4 w3-left-align w3-xlarge">
                 <p class="w3-bar-item " style=" height: 70px; width: 90px; ">
-                <img src="view/logo.png" alt="Logo" style="width: 100%; height: 100%; transform: translateY(-8px);"></p>
+                    <img src="view/logo.png" alt="Logo" style="width: 100%; height: 100%; transform: translateY(-8px);"></p>
                     <a href="../Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">private</a>
                     <a href="../Registration/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Register</a>
                     <a href="../Addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a>
@@ -26,6 +26,12 @@
                 <form class="d-flex col-4" role="search" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
                     <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search" style="height:60%;">
                     <button class="btn btn-outline-light" type="submit" style="height:60%;">Search</button>
+                </form>
+
+                <form action="view/logout.php" method="post">
+                <button type="submit" class="w3-bar-item w3-button w3-hide-xlarge w3-hover-white">
+                    <i class="fa fa-sign-out"></i> Logout
+                </button>
                 </form>
         </div>
 

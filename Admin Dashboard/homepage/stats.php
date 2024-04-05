@@ -1,6 +1,5 @@
 <?php
-    require_once '../../repeated_files/connexion_db.php';
-
+    $pdo = connectDB::getInstance();
     function countRecords($pdo, $table, $condition = "") {
         $query = "SELECT COUNT(*) FROM $table $condition";
         $statement = $pdo->query($query);

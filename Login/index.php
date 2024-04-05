@@ -29,6 +29,7 @@ function check_login_errors()
     <link rel="stylesheet" href ="styles.css"> 
 </head>
 <body>
+<div class="container">
     <div class="formulaire"> 
     <h1>Login</h1>
     <form action="login.php" method="post" novalidate>
@@ -53,6 +54,8 @@ function check_login_errors()
     <?php
     check_login_errors();
     ?>
+</div>
+<img src="pict.png" alt="Registration Image" class="registration-image">
 </div>
 <script src="verify_inputs.js"></script>
 </body>
