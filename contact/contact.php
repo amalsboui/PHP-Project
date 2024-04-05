@@ -9,17 +9,13 @@ if(isset($_POST['submit'])){
     $ourEmail = "yasmineelhakem8@gmail.com";
     $headers = "From: " . $email;
     $txt = "You have received an email from " . $name . ".\n\n" . $message;
-
-    // Configure SMTP settings
-    ini_set("SMTP", "smtp.gmail.com");
-    ini_set("smtp_port", "587");
-
-    // Send email using Gmail SMTP
+    
     if(mail($ourEmail, $subject, $txt, $headers)){
-        echo "Your message has been sent!";
-    } else {
-        echo "Your message has not been sent!";
+        echo "<script>alert('Message has been sent');</script>";
+    } else{
+        echo "<script>alert('Message not sent');</script>"; 
     }
+    echo " <script>window.location.href = 'index.php';</script>";
+    exit(); 
 }
-
 ?>
