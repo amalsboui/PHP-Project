@@ -4,6 +4,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     
+    <style>
+        a:hover {
+        text-decoration: none; 
+        }
+    </style>
 </head>
 
 
@@ -35,11 +40,18 @@
                     <button class="btn btn-outline-light" type="submit" style="height:60%;">Search</button>
                 </form>
 
-                <form action="../../homePage/view/logout.php" method="post">
-                <button type="submit" class="w3-bar-item w3-button w3-hide-xlarge w3-hover-white">
-                    <i class="fa fa-sign-out"></i> Logout
-                </button>
-                </form>
+                <form action="view/logout.php" class="w3-xlarge" method="post">
+                    <button type="submit" class="w3-bar-item w3-button w3-hide-xxlarge w3-hover-white">
+                        <i class="fa fa-sign-out"></i> Logout
+                    </button>
+                </form> 
+
+                <div class=w3-xlarge>
+                    <button type="submit" class="w3-bar-item w3-button w3-hide-xlarge w3-hover-white w3-xlarge">
+                        <!-- Profile<i class='fas fa-user-alt' style='font-size:20px'></i> -->
+                        Profile<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    </button>
+                </div>
         </div>
 
         <div class="w3-center">

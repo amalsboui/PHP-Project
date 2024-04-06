@@ -24,6 +24,7 @@
                     <p class="w3-bar-item " style=" height: 70px; width: 90px; ">
                         <img src="/PHP-Project/homePage/view/logo.png" alt="Logo" style="width: 100%; height: 100%; transform: translateY(-8px);">
                     </p>
+                    <a href="../index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">Home</a>
                     <a href="../Addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a>
                     <a href="../contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
                 </div>
