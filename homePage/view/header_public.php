@@ -3,6 +3,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        a:hover {
+        text-decoration: none; 
+        }
+    </style>
     
 </head>
 
@@ -16,10 +22,10 @@
 
                 <div class="w3-bar w3-theme-d4 w3-left-align w3-xlarge">
                     <p class="w3-bar-item " style=" height: 70px; width: 90px; ">
-                    <img src="view/logo.png" alt="Logo" style="width: 100%; height: 100%; transform: translateY(-8px);"></p>
-                    <a href="../Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">Log in</a>
+                    <img src="/PHP-Project/homePage/view/logo.png" alt="Logo" style="width: 100%; height: 100%; transform: translateY(-8px);"></p>
+                    <a href="../Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white " >Log in</a>
                     <a href="../Registration/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Register</a>
-                    <a href="../Addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a>
+                    <a href="../Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a> 
                     <a href="../contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
                 </div>
                         
