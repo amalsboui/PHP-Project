@@ -25,7 +25,7 @@ $user= getuserbyId($lastInsertedId,$pdo);
 
 </head>
 <body>
-    <?php include_once '../homePage/view/header.php';?>
+    <?php include_once '../homePage/view/header_public.php';?>
     <?php include_once "../repeated_files/connexion_db.php";?>
     <?php include_once '../homePage/view/search_filter.php';?>
    

@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
             exit(); 
         }
 
-        $recruters_id = $_SESSION['user_id'];
+        $id_recruiter = $_SESSION['user_id'];
 
 
         $errors=[];
@@ -40,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         }
         print_r($_POST);
 
-        $sql="INSERT INTO jobs (position,category,employment_type,entreprise,location,description,recruters_id) VALUES(:position,:category,:employment_type,:entreprise,:location,:description,:recruters_id)";
+        $sql="INSERT INTO jobs (position,category,employment_type,entreprise,location,description,id_recruiter) VALUES(:position,:category,:employment_type,:entreprise,:location,:description,:id_recruiter)";
         $stmt=$pdo->prepare($sql);
 
        
@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         $stmt->bindParam(":entreprise",$entreprise); 
         $stmt->bindParam(":location",$location);        
         $stmt->bindParam(":description",$description); 
-        $stmt->bindParam(":recruters_id",$recruters_id);
+        $stmt->bindParam("id_recruiter",$id_recruiter);
 
         $stmt->execute();
 

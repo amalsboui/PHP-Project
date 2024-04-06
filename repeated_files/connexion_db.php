@@ -1,7 +1,7 @@
 <?php 
     class connectDB{
 
-        private static $_dbname="myfirstdatabase";
+        private static $_dbname="weoffer";
         private static $_user="root";
         private static $_pwd="";
         private static $_host="localhost";
