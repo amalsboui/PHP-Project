@@ -10,7 +10,7 @@
     $total_jobs = countRecords($pdo, 'jobs');
     $total_jobseekers = countRecords($pdo, 'users', "WHERE user_type = 'job_seeker'");
     $total_recruiters = countRecords($pdo, 'users', "WHERE user_type = 'recruiter'");
-    $total_applications = countRecords($pdo, 'application');
+    $total_applications = countRecords($pdo, 'applications');
 
     $pdo = null;
 ?>

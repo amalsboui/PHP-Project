@@ -67,9 +67,11 @@
                     </form> 
 
                     <div class=w3-xlarge>
+                        <a href="../profile updated/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Profile</a>
+                        <!--
                         <button type="submit" class="w3-bar-item w3-button w3-hide-xlarge w3-hover-white w3-xlarge">
-                            <!-- Profile<i class='fas fa-user-alt' style='font-size:20px'></i> -->
-                            Profile<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                             Profile<i class='fas fa-user-alt' style='font-size:20px'></i> 
+                            Profile<i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
                         </button>
                     </div>
                 <?php } ?>

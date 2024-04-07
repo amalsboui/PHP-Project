@@ -13,16 +13,20 @@ if (!isset($_SESSION["authenticated"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 
-   <?php include("../../../homePage/view/header_admin.php"); ?> 
-   <?php include ("../../../homePage/view/search_filter.php") ;?>
-   <?php require_once ("users_db.php") ;?>
+   
+    <?php include("../../homePage/view/header_admin.php"); ?> 
+    <?php require_once ("users_db.php") ;?>
+   
 
     
 
-
+<div class="d-sm-flex align-items-center justify-content-between mb-4 ml-4">
+    <h1 class="h3 mb-0 text-gray-800 mt-5 mb-3"><?php echo $type ?></h1>
+</div>
 <div class="container">
 <div class="row">
     <div class="col-lg-12 card-margin">
@@ -53,6 +57,8 @@ if (!isset($_SESSION["authenticated"])) {
         </div>
     </div>
 </div>
+
+   
 <div class="row">
         <div class="col-12">
             <div class="card card-margin">
@@ -63,54 +69,81 @@ if (!isset($_SESSION["authenticated"])) {
                                 <div class="result-header">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <div class="records">Showing: <b>1-20</b> of <b><?php echo $total_jobseekers ?></b></div>
+                                            <div class="records">Showing: <b>1-20</b> of <b><?php echo($type =='job_seeker' ? $total_jobseekers : $total_recruiters) ?></b></div>
                                         </div>
-                                        <div class="col-lg-6">
-                                            <div class="result-actions">
-                                                <div class="result-sorting">
-                                                    <span>Sort By:</span>
-                                                    <select class="form-control border-0" id="exampleOption">
-                                                        <option value="1">Relevance</option>
-                                                        <option value="2">Names (A-Z)</option>
-                                                        <option value="3">Names (Z-A)</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                        <div class="col-lg-6 d-flex justify-content-end"> 
+                                            <a href="../../../Registration/index.php" class="btn btn-warning ml-auto">Add User</a> <!-- Apply ml-auto to push the button to the right -->
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="result-body">
                                     <div class="table-responsive">
                                         <table class="table widget-26">
+                                        <thead> <!-- Table Header Section -->
+                                            <tr>
+                                                <th>Profile Picture</th>
+                                                <th>Name</th>
+                                                <th>Title/Role</th>
+                                                <th><?php echo($type =='Jobseekers' ? 'Projects' : 'Entreprise') ?></th>
+                                                <th>City</th>
+                                                <th>User Profile</th>
+                                            </tr>
+                                        </thead>
                                             <tbody>
-                                            <?php foreach($jobseekers as $jobseeker): ?>
+                                            <?php foreach($users as $user): ?>
                                                 <tr>
-                                                    <td>
+                                                    <td class="align-middle">
                                                         <div class="widget-26-job-emp-img">
                                                             <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="Company" />
                                                         </div>
                                                     </td>
-                                                    <td>
+                                                    <td class="align-middle">
                                                         <div class="widget-26-job-title">
-                                                            <a href="#"><?php echo $jobseeker["name"] ." ". $jobseeker["last_name"]?></a>
-                                                            <p class="m-0"><a href="#" class="employer-name"><?php echo $jobseeker["job"]?></a> <span class="text-muted time"><?php calculate_time($jobseeker["created_at"])?></span></p>
+                                                            <a href="#"><?php echo $user["name"] ." ". $user["last_name"]?></a>
+                                                            <p class="m-0"> <span class="text-muted time"><?php calculate_time($user["created_at"])?></span></p>
                                                         </div>
                                                     </td>
-                                                    <td>
-                                                        <div class="widget-26-job-info">
-                                                            <p class="type m-0">Full-Time</p>
-                                                            <p class="text-muted m-0">in <span class="location"><?php echo $jobseeker["city"]?></span></p>
+                                                    <td class="align-middle">
+                                                    <div class="widget-26-job-title">
+                                                    <?php
+                                                        if (isset($user["job"])) { 
+                                                            echo '<div class="widget-26-job-info">';
+                                                            echo '<p class="text-muted m-3"> <span class="location">' . $user["job"] . '</span></p>';
+                                                            echo '</div>';
+                                                        }
+                                                        ?>
                                                         </div>
                                                     </td>
-                                                    <td>
-                                                        <div class="widget-26-job-salary">$ 50/hr</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="widget-26-job-category bg-soft-base">
-                                                            <i class="indicator bg-base"></i>
-                                                            <span>Software Development</span>
+                                                    <td class="align-middle">
+                                                    <div class="widget-26-job-title">
+                                                    <?php
+                                                        if (isset($user["info_personnelles"])) { 
+                                                            echo '<div class="widget-26-job-info">';
+                                                            echo '<p class="text-muted m-2"><span class="location">' . (strlen($user["info_personnelles"]) > 70 ? substr($user["info_personnelles"], 0, 100) . '...' : $user["info_personnelles"]) . '</span></p>';
+                                                            echo '</div>';
+                                                        }
+                                                        ?>
                                                         </div>
                                                     </td>
+                                                    <td class="align-middle">
+                                                    <div class="widget-26-job-title">
+                                                    <?php
+                                                        if (isset($user["city"])) { 
+                                                            echo '<div class="widget-26-job-info">';
+                                                            echo '<p class="text-muted m-2"><span class="location">' . $user["city"] . '</span></p>';
+                                                            echo '</div>';
+                                                        }
+                                                        ?>
+                                                        </div>
+                                                    </td>
+                                            
+                                                    <td class="align-middle">
+                                                        <div class="widget-26-job-category ">   
+                                                            <a href="../../../profile updated/index.php?id=<?php echo $user['id_user']; ?>" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">User Details</a>
+                                                        </div>
+                                                    </td>
+                                                
                                                     
                                                 </tr>
                                                 <?php endforeach;?>
@@ -147,5 +180,8 @@ if (!isset($_SESSION["authenticated"])) {
         </div>
     </div>
 </div>
+<?php include ("../../homePage/view/search_filter.php") ;?>
+<?php include ("../../homePage/view/footer.php") ;?>
+   
 </body>
 </html>

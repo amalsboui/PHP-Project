@@ -1,5 +1,6 @@
 body{
-    background-image: url(cov.jpg);
+   /* background-image: url(cov.jpg);*/
+   color: black;
     overflow: hidden;
 }
 #recherche{

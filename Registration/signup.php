@@ -54,6 +54,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         //echo "SQL Query: $sql<br>";
         $stmt->execute();
 
+
+        if($_SESSION["user_type"]=='admin')
+        {
+            echo "<script>alert('User added successfully');
+            window.location.href = '../Admin Dashboard/users/index.php';</script>";
+        }
+        else{
         $user=get_user($pdo,$email);
         $_SESSION["user_id"]=$user["id_user"];
         $_SESSION["user_name"]=htmlspecialchars($user["name"]);
@@ -61,8 +68,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 
         //header("Location:index.php?registration=success");
 
+
         echo "<script>alert('Registered successfully');
-        window.location.href = '../homePage/index.php';</script>";
+         window.location.href = '../homePage/index.php';</script>";}
         exit();
 
         $pdo=null;
@@ -70,8 +78,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         }
     }catch(PDOException $e)
         {
-            error_log("PDOException: " . $e->getMessage());
-            
+            error_log("PDOException: " . $e->getMessage());         
         }
     }else{
 

@@ -13,19 +13,18 @@
     <link rel="stylesheet" href="style.css">
 
 <?php 
-session_start(); 
-/*
-if(isset($_SESSION["user_type"])) {
-    if($_SESSION["user_type"] == "admin") {
-        include("view/header_admin.php");
-    } else {
-        include("view/header_private.php");
-    }
-} else {
-    include("view/header_public.php");
-}*/
 
-include "view/header.php";
+session_start(); 
+  if(isset($_SESSION))
+  {
+    if($_SESSION["user_type"] == 'admin') {
+        include("view/header_admin.php");
+    } else {  
+        include("view/header.php");
+    }
+  }else{
+    include("view/header.php");
+  }
 include "categories.php"; 
 ?>
 

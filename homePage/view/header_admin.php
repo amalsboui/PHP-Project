@@ -21,15 +21,15 @@
 
                 <div class="w3-bar w3-theme-d4 w3-left-align w3-xlarge">
                 <p class="w3-bar-item " style=" height: 70px; width: 90px; ">
-                    <img src="view/logo.png" alt="Logo" style="width: 100%; height: 100%; transform: translateY(-8px);"></p>
-                    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">Home</a>
-                    <a href="../../Joboffers/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Job Offers</a>
-                    <a href="../../addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add job offer</a>
+                    <img src="/PHP-PROJECT/homePage/view/logo.png" alt="Logo" style="width: 100%; height: 100%; transform: translateY(-8px);"></p>
+                    <a href="/PHP-PROJECT/Admin Dashboard/homepage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">Home</a>
+                    <a href="/PHP-PROJECT/Admin Dashboard/Joboffers/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Job Offers</a>
+                    <a href="/PHP-PROJECT/Admin Dashboard/addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add job offer</a>
                     <div class="w3-dropdown-hover w3-hide-small">
                         <button class="w3-button" title="Notifications">Users <i class="fa fa-caret-down"></i></button>     
                         <div class="w3-dropdown-content w3-card-4 w3-bar-block">
-                        <a href="../users/recruiters/index.php" class="w3-bar-item w3-button">Recruiters</a>
-                        <a href="../users/jobseekers/index.php" class="w3-bar-item w3-button">Job Seekers</a>
+                        <a href="../users?type=Recruiters" class="w3-bar-item w3-button">Recruiters</a>
+                        <a href="../users?type=Jobseekers" class="w3-bar-item w3-button">Job Seekers</a>
                         </div>
                     </div>
                 </div>
@@ -47,9 +47,11 @@
                 </form> 
 
                 <div class=w3-xlarge>
-                    <button type="submit" class="w3-bar-item w3-button w3-hide-xlarge w3-hover-white w3-xlarge">
-                        <!-- Profile<i class='fas fa-user-alt' style='font-size:20px'></i> -->
-                        Profile<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    <a href="../../profile updated/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Profile</a>
+                        <!--
+                        <button type="submit" class="w3-bar-item w3-button w3-hide-xlarge w3-hover-white w3-xlarge">
+                             Profile<i class='fas fa-user-alt' style='font-size:20px'></i> 
+                            Profile<i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
                     </button>
                 </div>
         </div>

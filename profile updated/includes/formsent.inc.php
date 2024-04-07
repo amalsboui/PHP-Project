@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $info_personnelles = $_POST['info_personnelles'];
     $job = $_POST['job'];
@@ -41,4 +42,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 else{ 
     header("Location: ../form.php");
 }
+ 
  

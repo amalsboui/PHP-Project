@@ -31,10 +31,10 @@ if (!isset($_SESSION["authenticated"])) {
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
  
 <?php
-    require_once '../../homePage/view/header_admin.php';
-    require_once '../../repeated_files/connexion_db.php';
-    require_once 'stats.php' 
-?>
+require_once '../../repeated_files/connexion_db.php';
+require_once 'stats.php';
+require_once '../../homePage/view/header_admin.php';
+ ?>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
