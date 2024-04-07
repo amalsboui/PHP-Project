@@ -13,9 +13,15 @@
 
             <label for="username">Username</label><br>
             <input  type="text" name="username"style="width: 350px; height: 50px" ><br><br>
-
-            <label for="projects">Projects done before :</label><br>
-            <input  type="text" name="projects" placeholder="list ur projects and achievements briefly"style="width: 350px; height: 50px" ><br><br>
+            <?php
+            if($user){
+                    if($user['user_type']=="job_seeker"){
+            echo "<label for='info_personnelles'>Projects done before :</label><br>";
+            echo "<input  type='text' name='info_personnelles' placeholder='list ur projects and achievements briefly'style='width: 350px; height: 50px' ><br><br>";}
+            else{
+                echo "<label for='info_personnelles'>Company :</label><br>";
+                echo "<input  type='text' name='info_personnelles' placeholder='Where do u currently work 'style='width: 350px; height: 50px' ><br><br>";  
+            }} ?>
 
             <label for="email">Your mail Adress :</label><br>
             <input  type="email" name="email"style="width: 350px; height: 50px" ><br><br>

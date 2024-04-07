@@ -80,12 +80,18 @@ $user= getuserbyId($lastInsertedId,$pdo);
                         }?>
                     </div>
                 </div>
-                <h4 class="mt-3">Projects done before:</h4>
-                <hr class="bg-primary">
                 <?php
-                        if($user){
-                            echo $user['projects'];
-                        }?>
+                if($user){
+                    if($user['user_type']=="job_seeker"){
+                echo "<h4 class='mt-3'>Projects done before:</h4>";
+                echo "<hr class='bg-primary'>";
+                 echo $user['info_personnelles']; }
+                else{
+                    echo "<h4 class='mt-3'> Entreprise actuelle:</h4>";
+                    echo "<hr class='bg-primary'>";
+                    echo $user['info_personnelles'];
+                }}
+                        ?>
             </div>
         </div>
     </div>
