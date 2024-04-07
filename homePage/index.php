@@ -14,6 +14,7 @@
 
 <?php 
 session_start(); 
+/*
 if(isset($_SESSION["user_type"])) {
     if($_SESSION["user_type"] == "admin") {
         include("view/header_admin.php");
@@ -22,8 +23,9 @@ if(isset($_SESSION["user_type"])) {
     }
 } else {
     include("view/header_public.php");
-}
+}*/
 
+include "view/header.php";
 include "categories.php"; 
 ?>
 
@@ -127,7 +129,6 @@ include "categories.php";
         categorySelect.add(option);
     });
 </script>
-
-  </script>
+<script src="script.js" > </script>
 </body>
 </html>
