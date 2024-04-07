@@ -40,7 +40,7 @@
                     <button class="btn btn-outline-light" type="submit" style="height:60%;">Search</button>
                 </form>
 
-                <form action="view/logout.php" class="w3-xlarge" method="post">
+                <form action="../../homePage/view/logout.php" class="w3-xlarge" method="post">
                     <button type="submit" class="w3-bar-item w3-button w3-hide-xxlarge w3-hover-white">
                         <i class="fa fa-sign-out"></i> Logout
                     </button>

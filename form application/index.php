@@ -10,7 +10,7 @@
 
 <div class="container">
   <h2>Apply Now</h2>
-  <form action="includes/application.php" method="post" enctype="multipart/form-data">
+  <form action="application.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="texte">Cover Letter :</label>
       <textarea id="CL" name="CL" rows="4" cols="50"></textarea>

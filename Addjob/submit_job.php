@@ -55,7 +55,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
 
         $stmt->execute();
 
-        header("Location:../homePage/index.php");
+        if($_SESSION['user_type']=='recruiter')
+        {
+            header("Location:../RecruiterPage/index.php");
+        }elseif($_SESSION['user_type']=='jobseeker'){
+        header("Location:../homePage/index.php");}
+        else{
+            header("../Admin Dashboard/Joboffers/index.php");
+        }
 
         $pdo=null;
         $stmt=null;

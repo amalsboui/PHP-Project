@@ -28,8 +28,9 @@
                         <a href="../Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white " >Log in</a>
                         <a href="../Registration/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Register</a>
                         <a href="../Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a> 
-                    <?php } else{ ?>
-                        <a href="../addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a> 
+                    <?php }elseif($_SESSION["user_type"] =='recruiter'){ ?>
+                            <a href="../addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a>
+                            <a href="/PHP-PROJECT/RecruiterPage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">My jobs</a>
                     <?php } ?>
                     <a href="../contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
                 </div>

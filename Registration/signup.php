@@ -63,6 +63,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         else{
         $user=get_user($pdo,$email);
         $_SESSION["user_id"]=$user["id_user"];
+        $_SESSION["user_type"]=$result["user_type"];
         $_SESSION["user_name"]=htmlspecialchars($user["name"]);
         $_SESSION["user_last_name"]=htmlspecialchars($user["last_name"]);
 
