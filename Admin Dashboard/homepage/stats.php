@@ -1,6 +1,5 @@
 <?php
-    require_once '../../repeated_files/connexion_db.php';
-
+    $pdo = connectDB::getInstance();
     function countRecords($pdo, $table, $condition = "") {
         $query = "SELECT COUNT(*) FROM $table $condition";
         $statement = $pdo->query($query);
@@ -11,7 +10,7 @@
     $total_jobs = countRecords($pdo, 'jobs');
     $total_jobseekers = countRecords($pdo, 'users', "WHERE user_type = 'job_seeker'");
     $total_recruiters = countRecords($pdo, 'users', "WHERE user_type = 'recruiter'");
-    $total_applications = countRecords($pdo, 'applications');
+    $total_applications = countRecords($pdo, 'application');
 
     $pdo = null;
 ?>

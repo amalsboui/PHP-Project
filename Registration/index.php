@@ -23,8 +23,11 @@ function check_signup_errors()
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
+<div class="container">
+<img src="picc.png" alt="Registration Image" class="registration-image">
     <div class="formulaire"> 
     <h1>Registration</h1>
+    
     <form action="signup.php" method="post">
 
         <div class="parent_div">
@@ -47,7 +50,6 @@ function check_signup_errors()
             <option value="job_seeker">Job seeker</option>
             <option value="recruiter">Recruiter</option>
         </select>
-
         <div class="parent_div">
             <label for="email">Email :</label>
             <input type="email" id="email" name="email" required>
@@ -71,9 +73,11 @@ function check_signup_errors()
 
         <button type="submit" name="register" id="register">Sign up</button>
     </form>
+    <p>Already have an account? <a href="../Login/index.php">Log in</a></p>
     <?php
         check_signup_errors();
     ?>
+</div>
 </div>
 <script src="verify_inputs.js"></script>
 </body>

@@ -47,12 +47,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         }
 
         $_SESSION["user_id"]=$result["id_user"];
+        $_SESSION["user_type"]=$result["user_type"];
         $_SESSION["user_name"]=htmlspecialchars($result["name"]);
         $_SESSION["user_last_name"]=htmlspecialchars($result["last_name"]);
 
         if($result["user_type"]=="admin")
         {
             header("Location:../ADmin Dashboard/homepage/index.php");
+            $_SESSION["authenticated"] = true;
         }
         else{
             echo "<script>alert('Login successful');
@@ -67,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         {
             die("Query failed: ".$e->getMessage());
         }
-    }else{
+}else{
         header("Location:index.php");
         die();
     }

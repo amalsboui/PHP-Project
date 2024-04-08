@@ -15,11 +15,8 @@
     
    <?php include("../homePage/view/header.php"); ?>  
     <?php  require_once"applications_db.php";
-    session_start();
     $id_job=$_POST["id_job"];
     $applications=get_applications($id_job);
-
-   
    foreach($applications as $application) {
     ?>
     <div class="card m-3 " style="display :flex">

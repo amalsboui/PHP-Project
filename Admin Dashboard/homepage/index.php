@@ -1,3 +1,11 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION["authenticated"])) {
+    header("Location: ../../login/index.php");
+    exit();
+}?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -17,21 +25,18 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
-
-
-
+ 
 <?php
-require_once 'view/header.php';
 require_once '../../repeated_files/connexion_db.php';
-include_once '../../homePage/view/search_filter.php' ;
-require_once 'stats.php' ?>
+require_once 'stats.php';
+require_once '../../homePage/view/header_admin.php';
+ ?>
 
-   <!-- Begin Page Content -->
+<!-- Begin Page Content -->
 <div class="container-fluid">
 
 <!-- Page Heading -->
@@ -41,8 +46,7 @@ require_once 'stats.php' ?>
 
 <!-- Content Row -->
 <div class="row justify-content-center">
-
-    <!-- Users and Job Offers Card -->
+<!--first row-->
     <div class="col-xl-8 mb-4">
         <div class="row">
             <!-- Users Card -->
@@ -81,10 +85,10 @@ require_once 'stats.php' ?>
             </div>
         </div>
     </div>
-
+<!--Second Row-->
     <div class="col-xl-10 mb-4">
     <div class="row">
-        <!-- Users Card -->
+        <!-- Jobseekers Card -->
         <div class="col mb-4">
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
@@ -101,7 +105,7 @@ require_once 'stats.php' ?>
                 </div>
             </div>
         </div>
-        <!-- Job Offers Card -->
+        <!-- Recruiters Card -->
         <div class="col mb-4">
             <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
@@ -118,7 +122,7 @@ require_once 'stats.php' ?>
                 </div>
             </div>
         </div>
-        <!-- Additional Card -->
+        <!-- Applications Card -->
         <div class="col mb-4">
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
@@ -142,6 +146,6 @@ require_once 'stats.php' ?>
 
 
 <?php
-require_once 'view/footer.php';
+require_once '../../homePage/view/footer.php';
 ?>
 

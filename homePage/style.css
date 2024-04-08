@@ -6,9 +6,7 @@ html{
 }
 .card-title {
     font-size:2.5rem;
-    font-weight:bold;
-   /* color:rgb(6, 69, 43);*/
-    
+    font-weight:bold;  
 }
 
 .card-text {
@@ -20,7 +18,15 @@ html{
     font-weight:bold;
 }
 
-a:hover{
-    text-decoration: none;
+#myHeader{
+    display:none;
 }
 
+@media screen and (max-width: 970px) {
+    #navbar{
+        display: none;
+    }
+    #myHeader{
+        display: block;
+    }
+}

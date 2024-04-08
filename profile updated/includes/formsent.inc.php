@@ -1,7 +1,8 @@
 <?php
 session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $projects = $_POST['projects'];
+    $info_personnelles = $_POST['info_personnelles'];
     $job = $_POST['job'];
     $city = $_POST['city'];
     $username=$_POST['username'];
@@ -22,9 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try{
         require_once  "dbh.inc.php";
-        $query = "INSERT INTO profilechanges (projects,job, city, image_url,username,email) VALUES (?,?,?,?,?,?);";
+        $query = "INSERT INTO profilechanges (info_personnelles,job, city, image_url,username,email) VALUES (?,?,?,?,?,?);";
         $stmnt=$pdo->prepare($query);
-        $stmnt->execute([$projects, $job,$city,$newname,$username,$email]);
+        $stmnt->execute([$info_personnelles, $job,$city,$newname,$username,$email]);
         $lastInsertid=$pdo->lastInsertId();
         $_SESSION['lastInsertedId']=$lastInsertid;
         $pdo=null;
@@ -41,4 +42,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 else{ 
     header("Location: ../form.php");
 }
+ 
  

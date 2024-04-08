@@ -1,5 +1,10 @@
 <?php
+session_start();
 
+if (!isset($_SESSION["authenticated"])) {
+    header("Location: ../../login/index.php");
+    exit();
+}
 function check_job_errors()
 {
     if(isset($_SESSION["errors_job"]))

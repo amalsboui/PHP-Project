@@ -1,4 +1,4 @@
-<?php require_once 'jobs_db.php'?>
+<?php require 'jobs_db.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,18 +12,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
-<?php session_start(); 
+<?php 
 
-  if(isset($_SESSION["user_id"])){
-    include("view/header_private.php");
+session_start(); 
+  if(isset($_SESSION))
+  {
+    if($_SESSION["user_type"] == 'admin') {
+        include("view/header_admin.php");
+    } else {  
+        include("view/header.php");
+    }
+  }else{
+    include("view/header.php");
   }
-  else{
-    include("view/header_public.php");
-  }
-    
-include "categories.php" 
-
+include "categories.php"; 
 ?>
+
 
 <!--Filters-->
   <div class="container mt-3">
@@ -60,31 +64,7 @@ include "categories.php"
 <?php require_once 'view/search_filter.php'?>
 
 
-<main class=" container d-flew flex-row justify-content-evenly">
-      <?php foreach($jobs as $job): ?>
-      <div class="card w3-theme-l5">
-  
-        <div class="card-body d-flex flex-column">
-          <div class="card-title" ><?php echo("🚀".$job["position"] )?></div>
-          <span class="text-muted font-italic "><?php calculate_time($job["created_at"])?></span>
-          <div class="tags mb-2 mt-1">
-              <span class="badge bg-secondary " ><?php echo $job["employment_type"] ?></span>
-              <span class="badge bg-primary"><?php echo $job["category"] ?></span>
-          </div>
-          <p class="card-text"><?php echo(strlen($job["description"]) > 284 ? substr($job["description"], 0, 284) . '...' : $job["description"]);?></p>
-          <ul class="list-group list-group-flush ">
-            <li class="list-group-item w3-theme-l5"><?php echo("🧱".$job["entreprise"] )?></li>
-            <li class="list-group-item w3-theme-l5"><?php echo("📍".$job["location"] )?></li>
-          </ul>
-        
-          <a href="../jobdetails/index.php?id=<?php echo $job['id_job']; ?>" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">See More</a>
-        
-        </div>
-
-      </div>
-      <?php endforeach;?>
-
-    </main>
+<?php require_once 'show_jobs.php'?>
 
     
 
@@ -124,7 +104,6 @@ include "categories.php"
         categorySelect.add(option);
     });
 </script>
-
-  </script>
+<script src="script.js" > </script>
 </body>
 </html>

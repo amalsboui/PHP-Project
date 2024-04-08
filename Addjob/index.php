@@ -24,8 +24,6 @@ function check_job_errors()
     <title>Add a Job</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css\styles.css">
-</head>
-<body>
 
 <div class="formulaire"> 
     <h1>Post a Job Offer</h1>
