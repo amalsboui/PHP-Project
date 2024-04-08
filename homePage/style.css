@@ -17,16 +17,3 @@ html{
     font-size:1.25rem;
     font-weight:bold;
 }
-
-#myHeader{
-    display:none;
-}
-
-@media screen and (max-width: 970px) {
-    #navbar{
-        display: none;
-    }
-    #myHeader{
-        display: block;
-    }
-}

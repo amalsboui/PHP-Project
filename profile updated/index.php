@@ -29,12 +29,13 @@ $user= getuserbyId($lastInsertedId,$pdo);
 
 
     <?php
-        if ($_SESSION['user_type']=='admin') {
+        /*if ($_SESSION['user_type']=='admin') {
             include("../homePage/view/header_admin.php");
         } else {
             include("../homePage/view/header.php");
-        }
-        ?>
+        }*/
+        include("../homePage/view/header.php");
+    ?>
     <?php include_once "../repeated_files/connexion_db.php";?>
     <?php include_once '../homePage/view/search_filter.php';?>
 </head>
@@ -48,13 +49,12 @@ $user= getuserbyId($lastInsertedId,$pdo);
                     
                     <label for="avatar">
                         <?php
-                        if ($user['image_url']){
-                        echo "<img src='includes/uploads/" . $user['image_url'] .  "'style ='width: 200px; height:200 px border-radius: 50%' class='avatar-image' alt='profilepicture'>";
-                    }
-                      else{ 
-                        
-                       echo " <i class='fas fa-user-tie fa-7x mt-5'> </i> ";
-                      }
+                            if ($user['image_url']){
+                            echo "<img src='includes/uploads/" . $user['image_url'] .  "'style ='width: 200px; height:200 px border-radius: 50%' class='avatar-image' alt='profilepicture'>";
+                            }
+                            else{ 
+                            echo " <i class='fas fa-user-tie fa-7x mt-5'> </i> ";
+                            }
                         ?> 
                     </label><br>
                     <?php
@@ -119,6 +119,6 @@ $user= getuserbyId($lastInsertedId,$pdo);
     </div>
 </div>
 </main>
-<?php include_once '../homePage/view/footer.php';?>
+<?php //include_once '../homePage/view/footer.php';?>
 </body>
 </html>

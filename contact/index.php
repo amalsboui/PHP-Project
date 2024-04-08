@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <?php 
-    if(isset($_SESSION["user_id"])){
-        include("../homePage/view/header_private.php"); }
-    else{
-        include("../homePage/view/header_public.php"); }
+  include("../homePage/view/header.php"); 
 ?>
 
   <div class="w3-padding-64 w3-content " id="contact">

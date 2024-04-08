@@ -72,7 +72,7 @@ if (!isset($_SESSION["authenticated"])) {
                                             <div class="records">Showing: <b>1-20</b> of <b><?php echo($type =='job_seeker' ? $total_jobseekers : $total_recruiters) ?></b></div>
                                         </div>
                                         <div class="col-lg-6 d-flex justify-content-end"> 
-                                            <a href="../../../Registration/index.php" class="btn btn-warning ml-auto">Add User</a> <!-- Apply ml-auto to push the button to the right -->
+                                            <a href="/PHP-Project/Registration/index.php" class="btn btn-warning ml-auto">Add User</a> <!-- Apply ml-auto to push the button to the right -->
                                         </div>
                                     </div>
                                 </div>
@@ -140,7 +140,7 @@ if (!isset($_SESSION["authenticated"])) {
                                             
                                                     <td class="align-middle">
                                                         <div class="widget-26-job-category ">   
-                                                            <a href="../../../profile updated/index.php?id=<?php echo $user['id_user']; ?>" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">User Details</a>
+                                                            <a href="/PHP-Project/profile updated/index.php?id=<?php echo $user['id_user']; ?>" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">User Details</a>
                                                         </div>
                                                     </td>
                                                 

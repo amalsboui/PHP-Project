@@ -8,8 +8,21 @@
         a:hover {
         text-decoration: none; 
         }
-    </style>
     
+        #myHeader{
+        display:none;
+        }
+
+        @media screen and (max-width: 970px) {
+            #navbar{
+                display: none;
+            }
+            #myHeader{
+                display: block;
+            }
+        }
+    </style>
+        
 </head>
 
 
@@ -28,13 +41,13 @@
                         <a href="../Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white " >Log in</a>
                         <a href="../Registration/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Register</a>
                         <a href="../Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a> 
-                        <a href="/PHP-Project/contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+                        <a href="../contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
                     <?php }else if( isset($_SESSION["user_id"]) && $_SESSION["user_type"] =='recruiter'){ ?>
                         <a href="../addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a>
                         <a href="/PHP-PROJECT/RecruiterPage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">My jobs</a>
-                        <a href="/PHP-Project/contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+                        <a href="../contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
                     <?php }else if( isset($_SESSION["user_id"]) && $_SESSION["user_type"] =='job_seeker'){ ?>
-                        <a href="/PHP-Project/contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+                        <a href="../contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
                     <?php } else if(isset($_SESSION["user_id"]) && $_SESSION["user_type"] =="admin") { ?>
                         <a href="/PHP-PROJECT/Admin Dashboard/homepage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">Home</a>
                         <a href="/PHP-PROJECT/Admin Dashboard/Joboffers/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Job Offers</a>

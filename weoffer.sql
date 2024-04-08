@@ -1,9 +1,9 @@
- -- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2024 at 05:17 PM
+-- Generation Time: Apr 08, 2024 at 07:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -92,15 +92,15 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_user`, `name`, `last_name`, `email`, `password`, `user_type`, `job`, `city`, `info_personnelles`, `created_at`) VALUES
-(1, 'Sarah', 'Martin', 'sarah.martin@gmail.com', '$2y$10$Q5T511f7ltOUcSEJ7S1y4etM/QKt0nUGGpwWF5RF4HYRE4A9KTrdC', 'job_seeker', '', '', '', '2024-04-06 14:48:42'),
-(2, 'Giselle', 'Carter', 'giselle.carter@gmail.com', '$2y$10$nTi3GVDHGfn1ySmP4REe9O6KrgD6A2xzaiTbid.ntCjupZFvH8T0O', 'recruiter', '', '', '', '2024-04-06 14:52:09'),
-(3, 'Juan', 'Martinez', 'juan.martinez@gmail.com', '$2y$10$FKBv0YRSgCxTQvj.BssKmeTWvcCzfIezrUE/VuJkbsGx8wtW0Uhem', 'recruiter', '', '', '', '2024-04-06 14:53:46'),
-(4, 'James', 'Lopez', 'jlopez8@gmail.com', '$2y$10$lmC98ScQFdsIhrtu5qfCR.uW.JhBrT6bwxW9xkuT2AAwhDRTnHRzq', 'job_seeker', 'Marketing Manager', 'Paris, France', 'As a marketing manager, I have spearheaded numerous projects aimed at enhancing brand visibility and driving growth. From leading product launch campaigns and developing content marketing strategies to orchestrating lead generation initiatives and managing event marketing efforts, I\'ve played a pivotal role in executing diverse marketing initiatives. Additionally, I\'ve overseen customer retention programs and guided rebranding initiatives, ensuring alignment with organizational goals and fostering long-term success.', '2024-04-06 14:55:12'),
-(5, 'Eya', 'Hammar', 'eyahammar23@gmail.com', 'Password123', 'admin', '', '', '', '2024-04-06 15:04:55'),
-(6, 'Amal', 'Sboui', 'amalsboui33@gmail.com', 'Password123', 'admin', '', '', '', '2024-04-06 15:06:09'),
-(7, 'Awab', 'Zemzemi', 'zemawab@gmail.com', 'Password123', 'admin', '', '', '', '2024-04-06 15:06:55'),
-(8, 'Yasmine', 'Elhakem', 'yasmineelhakem8@gmail.com', 'Password123', 'admin', '', '', '', '2024-04-06 15:07:29');
+INSERT INTO `users` (`id_user`, `name`, `last_name`, `email`, `password`, `user_type`, `job`, `city`, `info_personnelles`, `image_url`, `created_at`) VALUES
+(1, 'Sarah', 'Martin', 'sarah.martin@gmail.com', '$2y$10$Q5T511f7ltOUcSEJ7S1y4etM/QKt0nUGGpwWF5RF4HYRE4A9KTrdC', 'job_seeker', '', '', '', '', '2024-04-06 14:48:42'),
+(2, 'Giselle', 'Carter', 'giselle.carter@gmail.com', '$2y$10$nTi3GVDHGfn1ySmP4REe9O6KrgD6A2xzaiTbid.ntCjupZFvH8T0O', 'recruiter', '', '', '', '', '2024-04-06 14:52:09'),
+(3, 'Juan', 'Martinez', 'juan.martinez@gmail.com', '$2y$10$FKBv0YRSgCxTQvj.BssKmeTWvcCzfIezrUE/VuJkbsGx8wtW0Uhem', 'recruiter', '', '', '', '', '2024-04-06 14:53:46'),
+(4, 'James', 'Lopez', 'jlopez8@gmail.com', '$2y$10$lmC98ScQFdsIhrtu5qfCR.uW.JhBrT6bwxW9xkuT2AAwhDRTnHRzq', 'job_seeker', '', '', '', 'IMG-6614203827b352.99509141.', '2024-04-06 14:55:12'),
+(5, 'Eya', 'Hammar', 'eyahammar23@gmail.com', 'Password123', 'admin', '', '', '', '', '2024-04-06 15:04:55'),
+(6, 'Amal', 'Sboui', 'amalsboui33@gmail.com', '$2y$10$lmC98ScQFdsIhrtu5qfCR.uW.JhBrT6bwxW9xkuT2AAwhDRTnHRzq', 'admin', '', '', '', '', '2024-04-06 15:06:09'),
+(7, 'Awab', 'Zemzemi', 'zemawab@gmail.com', 'Password123', 'admin', '', '', '', '', '2024-04-06 15:06:55'),
+(8, 'Yasmine', 'Elhakem', 'yasmineelhakem8@gmail.com', '$2y$10$lmC98ScQFdsIhrtu5qfCR.uW.JhBrT6bwxW9xkuT2AAwhDRTnHRzq', 'admin', '', '', '', '', '2024-04-06 15:07:29');
 
 --
 -- Indexes for dumped tables
