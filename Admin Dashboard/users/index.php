@@ -18,7 +18,7 @@ if (!isset($_SESSION["authenticated"])) {
     <link href="style.css" rel="stylesheet">
 
    
-    <?php include("../../homePage/view/header_admin.php"); ?> 
+    <?php include("../../homePage/view/header.php"); ?> 
     <?php require_once ("users_db.php") ;?>
    
 

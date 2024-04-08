@@ -15,7 +15,7 @@
 <?php 
 
 session_start(); 
-  if(isset($_SESSION))
+  /*if(isset($_SESSION["user_id"]))
   {
     if($_SESSION["user_type"] == 'admin') {
         include("view/header_admin.php");
@@ -24,7 +24,8 @@ session_start();
     }
   }else{
     include("view/header.php");
-  }
+  }*/
+include("view/header.php");
 include "categories.php"; 
 ?>
 

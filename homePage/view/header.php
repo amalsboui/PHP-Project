@@ -28,14 +28,29 @@
                         <a href="../Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white " >Log in</a>
                         <a href="../Registration/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Register</a>
                         <a href="../Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a> 
-                    <?php }elseif($_SESSION["user_type"] =='recruiter'){ ?>
-                            <a href="../addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a>
-                            <a href="/PHP-PROJECT/RecruiterPage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">My jobs</a>
-                    <?php } ?>
-                    <a href="../contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+                        <a href="/PHP-Project/contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+                    <?php }else if( isset($_SESSION["user_id"]) && $_SESSION["user_type"] =='recruiter'){ ?>
+                        <a href="../addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a>
+                        <a href="/PHP-PROJECT/RecruiterPage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">My jobs</a>
+                        <a href="/PHP-Project/contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+                    <?php }else if( isset($_SESSION["user_id"]) && $_SESSION["user_type"] =='job_seeker'){ ?>
+                        <a href="/PHP-Project/contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+                    <?php } else if(isset($_SESSION["user_id"]) && $_SESSION["user_type"] =="admin") { ?>
+                        <a href="/PHP-PROJECT/Admin Dashboard/homepage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">Home</a>
+                        <a href="/PHP-PROJECT/Admin Dashboard/Joboffers/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Job Offers</a>
+                        <a href="/PHP-PROJECT/Admin Dashboard/addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add job offer</a>
+                        <div class="w3-dropdown-hover w3-hide-small">
+                            <button class="w3-button" title="Notifications">Users <i class="fa fa-caret-down"></i></button>     
+                            <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+                            <a href="../users?type=Recruiters" class="w3-bar-item w3-button">Recruiters</a>
+                            <a href="../users?type=Jobseekers" class="w3-bar-item w3-button">Job Seekers</a>
+                        </div>
+                    </div>
+                    <?php } ?> 
                 </div>
 
                 <!-- Sidebar to display on screens < 970px -->
+                <?php if(!isset($_SESSION["user_id"]) || $_SESSION["user_type"]!="admin"){ ?>
                 <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="mySidebar">
                     <button class="w3-bar-item w3-button w3-theme-l4 " onclick="w3_close()">Close <i class="fa fa-remove"></i></button>
                     <?php if(!isset($_SESSION["user_id"])){ ?>
@@ -51,6 +66,7 @@
                 <div class="w3-container w3-theme-d4 w3-padding" id="myHeader">
                     <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme-d4"></i> 
                 </div>
+                <?php }?>
                 
                 <!-- Search -->
                 <form class="d-flex  col-sm-7 col-md-4" role="search" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
@@ -61,12 +77,13 @@
 
                 <!-- Profile and logout -->
                 <?php if(isset($_SESSION["user_id"])){ ?>
-                    <form action="view/logout.php" class="w3-xlarge" method="post">
+                    <form action="/PHP-Project/homePage/view/logout.php" class="w3-xlarge" method="post">
                     <button type="submit" class="w3-bar-item w3-button w3-hide-xxlarge w3-hover-white">
                         <i class="fa fa-sign-out"></i> Logout
                     </button>
                     </form> 
 
+                    <?php if($_SESSION["user_type"]!="admin"){ ?>
                     <div class=w3-xlarge>
                         <a href="../profile updated/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Profile</a>
                         <!--
@@ -75,6 +92,7 @@
                             Profile<i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
                         </button>
                     </div>
+                    <?php }?>
                 <?php } ?>
                 
         </div>

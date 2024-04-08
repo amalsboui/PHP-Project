@@ -33,7 +33,7 @@ if (!isset($_SESSION["authenticated"])) {
 <?php
 require_once '../../repeated_files/connexion_db.php';
 require_once 'stats.php';
-require_once '../../homePage/view/header_admin.php';
+require_once '../../homePage/view/header.php';
  ?>
 
 <!-- Begin Page Content -->
