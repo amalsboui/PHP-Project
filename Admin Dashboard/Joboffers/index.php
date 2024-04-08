@@ -1,4 +1,4 @@
-<?php require_once 'jobs_db.php'?>
+<?php require_once '../../homePage/jobs_db.php'?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,22 +11,18 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+   <?php session_start(); ?>
+   <?php include("../homepage/view/header.php"); ?> 
+   <?php include "../../homePage/categories.php" ?>
+   
+   
 
-<?php session_start(); 
 
-  if(isset($_SESSION["user_id"])){
-    include("view/header_private.php");
-  }
-  else{
-    include("view/header_public.php");
-  }
-    
-include "categories.php" 
-
-?>
-
-<!--Filters-->
-  <div class="container mt-3">
+   <!--Filters-->
+<div class="container mt-3">
     <h2>Filters</h2>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
         <div class="row">
@@ -57,7 +53,7 @@ include "categories.php"
     </form>
 </div>
 
-<?php require_once 'view/search_filter.php'?>
+<?php require_once '../homePage/view/search_filter.php'?>
 
 
 <main class=" container d-flew flex-row justify-content-evenly">
@@ -76,7 +72,7 @@ include "categories.php"
             <li class="list-group-item w3-theme-l5"><?php echo("🧱".$job["entreprise"] )?></li>
             <li class="list-group-item w3-theme-l5"><?php echo("📍".$job["location"] )?></li>
           </ul>
-        
+         
           <a href="../jobdetails/index.php?id=<?php echo $job['id_job']; ?>" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">See More</a>
         
         </div>
@@ -108,7 +104,7 @@ include "categories.php"
 
 
   <!-- Footer -->
-  <?php include("view/footer.php"); ?>
+  <?php include("../homePage/view/footer.php"); ?>
   
 
   

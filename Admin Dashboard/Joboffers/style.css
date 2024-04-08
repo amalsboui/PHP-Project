@@ -1,4 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+
+:root{
+
+    /* fonts */
+     --f:"Agbalumo",sans-serif;
+
+}
 html{
+    font-family:var(--f);
     scroll-behavior: smooth;
 }
 .card{
@@ -19,8 +28,3 @@ html{
     font-size:1.25rem;
     font-weight:bold;
 }
-
-a:hover{
-    text-decoration: none;
-}
-

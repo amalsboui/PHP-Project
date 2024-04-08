@@ -23,13 +23,13 @@ function check_job_errors()
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add a Job</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css\styles.css">
+    <link rel="stylesheet" href="../../Addjob/css\styles.css">
 </head>
 <body>
 
 <div class="formulaire"> 
     <h1>Post a Job Offer</h1>
-    <form action="submit_job.php" method="post">
+    <form action="../../Addjob/submit_job.php" method="post">
 
         <label for="position">Job Title:</label>
         <input type="text" id="position" name="position" required>
@@ -63,6 +63,6 @@ function check_job_errors()
     ?>
 </div>
 
-<script src=../repeated_files/categories.js></script>
+<script src=../../repeated_files/categories.js></script>
 </body>
 </html>

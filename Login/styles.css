@@ -6,7 +6,7 @@ body {
 
 .formulaire {
     max-width: 400px;
-    margin: 50px auto;
+    margin: 95px auto;
     background: #fff;
     padding: 20px;
     border-radius: 5px;
@@ -26,24 +26,14 @@ label {
     margin-bottom: 5px;
 }
 
-select,input{
+input {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    width: 100%;
-    
+    width:95%;
 }
 
-input{
-    padding-right: 2px;
-}
-
-select{
-    
-    height: 40px;
-    
-}
 button{
     background-color: #4cacaf;
     color: white;
@@ -56,6 +46,7 @@ button{
 button:hover {
     background-color: #398587;
 }
+
 .error-container {
     text-align: center;
     font-family: arial,sans-serif;
@@ -69,7 +60,6 @@ button:hover {
 
 .parent_div.success input{
     border-color: #09c372;
-    
 }
 
 .parent_div.error input{

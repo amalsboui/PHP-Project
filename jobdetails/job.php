@@ -1,14 +1,31 @@
+
 <?php
-    require_once '../repeated_files/connexion_db.php';
-    $db = connectDB::getInstance();
-    $query='SELECT * FROM jobs';
-    $statement=$db->prepare($query);
-    $statement->execute();
-    $jobs=$statement->fetchAll(PDO::FETCH_ASSOC);
-    $statement->closeCursor();
-   // print_r ($jobs);
-    //echo gettype($jobs);//type of $jobs array of arrays each row is an array
-    function calculate_time($created)
+if ($_SERVER["REQUEST_METHOD"] === "GET") {
+    try {
+        $pdo = connectDB::getInstance();
+
+    
+        if(isset($_GET['id'])) {
+            $id_job = $_GET["id"];
+        
+            $query = "SELECT * FROM jobs WHERE id_job =:id";
+            $statement = $pdo->prepare($query);
+            $statement->bindParam(":id",$id_job);
+            $statement->execute();
+            $job = $statement->fetch(PDO::FETCH_ASSOC);
+
+            if (!$job) {
+                die("Job not found");
+            }
+        }
+    } catch (PDOException $e) {
+        die("Query failed: " . $e->getMessage());
+    }
+}else{
+    header("Location:../homePage/index.php");
+    die();
+}
+function calculate_time($created)
     {
             $timeDifference = time() - strtotime($created);
 
@@ -31,4 +48,3 @@
                 echo "$hoursAgo hours ago";
             }
     }
-?>
