@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
 
 </head>
 <script>
@@ -14,9 +15,17 @@
 <body>
     
    <?php include("../homePage/view/header.php"); ?>  
+   <main>
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4 ml-4">
+        <h1 class="h3 mb-0 text-gray-800 mt-5 mb-3">Applications</h1>
+    </div>
+
     <?php  require_once"applications_db.php";
     $id_job=$_POST["id_job"];
     $applications=get_applications($id_job);
+
+    
    foreach($applications as $application) {
     ?>
     <div class="card m-3 " style="display :flex">
@@ -30,6 +39,7 @@
          </div>
     </div>
     <?php }?>
+   </main>
 
       <!-- Footer -->
   <?php include("../homePage/view/footer.php"); ?>

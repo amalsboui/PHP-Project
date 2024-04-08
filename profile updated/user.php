@@ -4,6 +4,9 @@
         try {         
             if(isset($_GET['id'])) {
                 $id_user = $_GET["id"];
+            }else{
+                $id_user=$_POST["id"];
+            }
             
                 $query = "SELECT * FROM users WHERE id_user =:id";
                 $statement = $pdo->prepare($query);
@@ -16,7 +19,7 @@
                 }
 
             }
-        } catch (PDOException $e) {
+         catch (PDOException $e) {
             die("Query failed: " . $e->getMessage());
         }
     }
@@ -25,7 +28,7 @@
             $id=$_SESSION["user_id"];
             $query=" SELECT * FROM users WHERE id_user =:id";
             $statement = $pdo->prepare($query);
-            $statement->bindParam(":id",$id_user);
+            $statement->bindParam(":id",$id);
             $statement->execute();
             $user = $statement->fetch(PDO::FETCH_ASSOC);
         }

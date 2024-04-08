@@ -67,6 +67,7 @@ $user= getuserbyId($lastInsertedId,$pdo);
                         }?>
                     <form method="post">
                         <a href="form.php" class="btn btn-primary">
+                            <input type="hidden" name="id" value="<?php echo $user['id_user']?> ">
                             Edit Profile
                         </a>
                     </form>

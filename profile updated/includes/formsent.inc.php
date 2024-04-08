@@ -5,7 +5,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $info_personnelles = $_POST['info_personnelles'];
     $job = $_POST['job'];
     $city = $_POST['city'];
-    $username=$_POST['username'];
+    $name=$_POST['name'];
+    $last_name=$_POST['last_name'];
     $email=$_POST['email'];
 
     $fileName=$_FILES["image"]["name"];
@@ -22,10 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <a href='../profile.php'> > Back to Profile <a></div>";
 
     try{
-        require_once  "dbh.inc.php";
-        $query = "INSERT INTO profilechanges (info_personnelles,job, city, image_url,username,email) VALUES (?,?,?,?,?,?);";
+        require_once  '../repeated_files/connexion_db.php';
+        $pdo = connectDB::getInstance();
+        $query = "INSERT INTO users (info_personnelles,job, city, image_url,name,last_name,email) VALUES (?,?,?,?,?,?);";
         $stmnt=$pdo->prepare($query);
-        $stmnt->execute([$info_personnelles, $job,$city,$newname,$username,$email]);
+        $stmnt->execute([$info_personnelles, $job,$city,$newname,$name,$lasy_name,$email]);
         $lastInsertid=$pdo->lastInsertId();
         $_SESSION['lastInsertedId']=$lastInsertid;
         $pdo=null;
