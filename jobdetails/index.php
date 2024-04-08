@@ -14,7 +14,7 @@
     <?php
    
     session_start();
-    echo $_GET['job_done'];
+  
     if (isset($_GET['job_done']) && $_GET['job_done']==1 ) {
       echo"<script>alert('Application done')</script>";
 
@@ -41,7 +41,7 @@
 
 
           <p class="card-text"><?php echo($job["description"] )?></p>
-          <?php if(/*isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "job_seeker" || !isset($_SESSION)*/true){?>
+          <?php if(isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "job_seeker" || !isset($_SESSION)){?>
             <form action="<?php echo( isset($_SESSION) ? "../form application/index.php" : "../login/index.php" ); ?>" method="POST">
             <input type="hidden" name="id_job" value="<?php echo$id_job ?>">
             <div class="d-flex justify-content-end">
@@ -57,7 +57,7 @@
 
                 if(isset($_SESSION["user_type"]) &&  $_SESSION["user_type"] == "admin" || $job["id_recruiter"]==$_SESSION["user_id"]) { ?>
                   <form action="../jobApplications/index.php" method="post">
-                    <input type="hidden" name="id_job" value="' . $job['id_job'] . '">
+                    <input type="hidden" name="id_job" value="<?php echo$job['id_job']?>">
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-info  align-self-end mt-auto" title="See applications">
                               See Applications
