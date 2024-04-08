@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     
         if(isset($_GET['id'])) {
             $id_job = $_GET["id"];
-        
+
             $query = "SELECT * FROM jobs WHERE id_job =:id";
             $statement = $pdo->prepare($query);
             $statement->bindParam(":id",$id_job);

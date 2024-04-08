@@ -22,7 +22,7 @@
 <body>
 
 <?php include("jobs_recruiter_db.php");
-$userId = $_SESSION["user_id"] ;
+$userId =/* $_SESSION["user_id"]*/2 ;
 $jobs=get_jobs($userId);
 
 require_once '../homePage/show_jobs.php';

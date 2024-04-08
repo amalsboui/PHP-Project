@@ -12,7 +12,13 @@
     <?php include_once '../homePage/view/header.php';?>
     <?php include_once '../homePage/view/search_filter.php';?>
     <?php
+   
     session_start();
+    echo $_GET['job_done'];
+    if (isset($_GET['job_done']) && $_GET['job_done']==1 ) {
+      echo"<script>alert('Application done')</script>";
+
+    }
     include_once 'job.php'
     ?>
     
@@ -35,16 +41,21 @@
 
 
           <p class="card-text"><?php echo($job["description"] )?></p>
-          <?php if($_SESSION["user_type"] == "job_seeker" || !isset($_SESSION)){?>
-            <input type="hidden" name="id_job" value="' . $job['id_job'] . '">
+          <?php if(/*isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "job_seeker" || !isset($_SESSION)*/true){?>
+            <form action="<?php echo( isset($_SESSION) ? "../form application/index.php" : "../login/index.php" ); ?>" method="POST">
+            <input type="hidden" name="id_job" value="<?php echo$id_job ?>">
             <div class="d-flex justify-content-end">
-              <a href="<?php echo( isset($_SESSION) ? "../form application/index.php" : "../login/index.php" ); ?>" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">Apply</a>
+            <!--  <a href="< ne9sa '?' php echo( isset($_SESSION) ? "../form application/index.php" : "../login/index.php" ); ?>" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">Apply</a>
+            changed it to form so i can submit id job -->
+            <input type="submit" class="btn btn-primary w3-theme-d4 align-self-end mt-auto" value ="Apply">
+            </form>
             </div>
             <?php }?>
 
             <?php
                 /*You can only see applications if you're an admin or if you are a recruiter who posted that job */
-                if($_SESSION["user_type"] == "admin" || $job["id_recruiter"]==$_SESSION["user_id"]) { ?>
+
+                if(isset($_SESSION["user_type"]) &&  $_SESSION["user_type"] == "admin" || $job["id_recruiter"]==$_SESSION["user_id"]) { ?>
                   <form action="../jobApplications/index.php" method="post">
                     <input type="hidden" name="id_job" value="' . $job['id_job'] . '">
                     <div class="d-flex justify-content-end">
