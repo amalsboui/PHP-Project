@@ -44,11 +44,11 @@ $user= getuserbyId($lastInsertedId,$pdo);
     <div class="col-md-10 mt-5 pt-5">
         <div class="row z-depth-3">
             <div class="col-sm-4 bg-custom-3 rounded-left">
-                <div class="card-block text-center text-white">
+                <div class="card-block text-center ">
                     
                     <label for="avatar">
                         <?php
-                        if ($user){
+                        if ($user['image_url']){
                         echo "<img src='includes/uploads/" . $user['image_url'] .  "'style ='width: 200px; height:200 px border-radius: 50%' class='avatar-image' alt='profilepicture'>";
                     }
                       else{ 
@@ -59,7 +59,7 @@ $user= getuserbyId($lastInsertedId,$pdo);
                     </label><br>
                     <?php
                         if($user){
-                            echo $user['username'];
+                            echo $user['name']." ".$user['last_name'];
                         }?><br>
                          <?php
                         if($user){
@@ -67,7 +67,6 @@ $user= getuserbyId($lastInsertedId,$pdo);
                         }?>
                     <form method="post">
                         <a href="form.php" class="btn btn-primary">
-                            <input type="hidden" name="id" value="<?php echo $user['id_user']?> ">
                             Edit Profile
                         </a>
                     </form>
@@ -86,37 +85,37 @@ $user= getuserbyId($lastInsertedId,$pdo);
             </div>
             <div class="col-sm-8 bg-white rounded-right">
                 <h3 class="mt-3 text-center">Profile</h3>
-                <hr class="badge-primary mt-0 w-25">
+                <hr class="badge-primary ">
                 <div class="row">
                     <div class="col-sm-6">
                         <p class="font-weight-bold">Email :</p>
                         <?php 
-                        if($user){
+                        
                             echo $user['email'];
-                        }?>
+                        ?>
                     </div>
                     <div class="col-sm-6">
                         <p class="font-weight-bold">Ville :</p>
                         <?php
-                        if($user){
+                        if($user['city']){
                             echo $user['city'];
                         }?>
                     </div>
                 </div>
                 <?php
-                if($user){
-                    if($user['user_type']=="job_seeker"){
+                if($_SESSION){
+                    if($_SESSION['user_type']=="job_seeker"){
                 echo "<h4 class='mt-3'>Projects done before:</h4>";
                 echo "<hr class='bg-primary'>";
                  echo $user['info_personnelles']; }
                 else{
-                    echo "<h4 class='mt-3'> Entreprise actuelle:</h4>";
-                    echo "<hr class='bg-primary'>";
+                    echo "<h4 class='mt-3'> Current Company:</h4>";
+                    echo "<hr class='bg-primary mt-0 w-25 '>";
                     echo $user['info_personnelles'];
                 }}
                         ?>
             </div>
-        </div>
+        </div> 
     </div>
 </div>
 </main>

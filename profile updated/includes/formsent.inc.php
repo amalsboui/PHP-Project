@@ -1,13 +1,11 @@
 <?php
 session_start();
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $info_personnelles = $_POST['info_personnelles'];
     $job = $_POST['job'];
     $city = $_POST['city'];
-    $name=$_POST['name'];
-    $last_name=$_POST['last_name'];
-    $email=$_POST['email'];
+    /*$username=$_POST['username'];
+    $email=$_POST['email'];*/
 
     $fileName=$_FILES["image"]["name"];
     $fileSize=$_FILES["image"]["size"];
@@ -20,16 +18,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<div style =' background-color: #ccc; width: 50%;margin: 0 auto;padding: 20px;border: 1px solid #ccc;border-radius: 5px;text-align: center;'>
     <p>Ur Profile is Succesfully edited</p>
     <br>
-    <a href='../profile.php'> > Back to Profile <a></div>";
+    <a href='../index.php'> > Back to Profile <a></div>";
 
     try{
-        require_once  '../repeated_files/connexion_db.php';
-        $pdo = connectDB::getInstance();
-        $query = "INSERT INTO users (info_personnelles,job, city, image_url,name,last_name,email) VALUES (?,?,?,?,?,?);";
+        require_once  "dbh.inc.php";
+        $query = "
+        UPDATE users
+        SET info_personnelles = ?, job = ? , city = ? , image_url=? 
+        WHERE id_user = ?;";
         $stmnt=$pdo->prepare($query);
-        $stmnt->execute([$info_personnelles, $job,$city,$newname,$name,$lasy_name,$email]);
-        $lastInsertid=$pdo->lastInsertId();
-        $_SESSION['lastInsertedId']=$lastInsertid;
+        $stmnt->execute([$info_personnelles, $job,$city,$newname,$_SESSION["user_id"]]);
         $pdo=null;
         $stmnt=null;
         exit(); 

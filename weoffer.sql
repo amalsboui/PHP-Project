@@ -83,7 +83,8 @@ CREATE TABLE `users` (
   `user_type` varchar(50) NOT NULL,
   `job` varchar(100) NOT NULL,
   `city` varchar(100) NOT NULL,
-  `projects` varchar(1000) NOT NULL,
+  `info_personnelles` varchar(1000) NOT NULL,
+  `image_url` varchar(1000) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -91,7 +92,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_user`, `name`, `last_name`, `email`, `password`, `user_type`, `job`, `city`, `projects`, `created_at`) VALUES
+INSERT INTO `users` (`id_user`, `name`, `last_name`, `email`, `password`, `user_type`, `job`, `city`, `info_personnelles`, `created_at`) VALUES
 (1, 'Sarah', 'Martin', 'sarah.martin@gmail.com', '$2y$10$Q5T511f7ltOUcSEJ7S1y4etM/QKt0nUGGpwWF5RF4HYRE4A9KTrdC', 'job_seeker', '', '', '', '2024-04-06 14:48:42'),
 (2, 'Giselle', 'Carter', 'giselle.carter@gmail.com', '$2y$10$nTi3GVDHGfn1ySmP4REe9O6KrgD6A2xzaiTbid.ntCjupZFvH8T0O', 'recruiter', '', '', '', '2024-04-06 14:52:09'),
 (3, 'Juan', 'Martinez', 'juan.martinez@gmail.com', '$2y$10$FKBv0YRSgCxTQvj.BssKmeTWvcCzfIezrUE/VuJkbsGx8wtW0Uhem', 'recruiter', '', '', '', '2024-04-06 14:53:46'),

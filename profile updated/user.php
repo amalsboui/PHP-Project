@@ -1,12 +1,10 @@
 <?php
+var_dump($_SESSION);
     $pdo = connectDB::getInstance();
     if ($_SESSION['user_type']=='admin') {
         try {         
             if(isset($_GET['id'])) {
                 $id_user = $_GET["id"];
-            }else{
-                $id_user=$_POST["id"];
-            }
             
                 $query = "SELECT * FROM users WHERE id_user =:id";
                 $statement = $pdo->prepare($query);
@@ -19,7 +17,7 @@
                 }
 
             }
-         catch (PDOException $e) {
+        } catch (PDOException $e) {
             die("Query failed: " . $e->getMessage());
         }
     }
