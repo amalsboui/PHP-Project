@@ -30,6 +30,7 @@ include "categories.php";
 ?>
 
 
+
 <!--Filters-->
   <div class="container mt-3">
     <h2>Filters</h2>
@@ -40,7 +41,7 @@ include "categories.php";
             <select id="category" class="form-select" name="category">
                 <option value="all" <?php echo (isset($_GET["category"]) && $_GET["category"] == "all") ? "selected" : ""; ?>>All Categories</option>
                 <?php foreach ($jobCategories as $categoryItem): ?>
-                    <option value="<?php echo $categoryItem; ?>" <?php echo (isset($_GET["category"]) && $_GET["category"] == $categoryItem) ? "selected" : ""; ?>><?php echo $categoryItem; ?></option>
+                    <option value=" <?php echo (isset($_GET["category"]) && $_GET["category"] == $categoryItem) ? "selected" : ""; ?>"><?php echo $categoryItem; ?></option>
                 <?php endforeach; ?>
             </select>
           </div>
@@ -105,6 +106,7 @@ include "categories.php";
         categorySelect.add(option);
     });
 </script>
+
 <script src="script.js" > </script>
 </body>
 </html>

@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     }
         $pdo=null;
         $stmnt=null;
-    echo"<script>alert('Application done')</script>";
+        echo"<script>alert('Application done')</script>";
         header("Location:../jobdetails/index.php?id=".$job."&&job_done=1");
 
         exit(); 

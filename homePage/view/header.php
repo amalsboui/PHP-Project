@@ -38,25 +38,27 @@
                     <p class="w3-bar-item " style=" height: 70px; width: 90px; ">
                     <img src="/PHP-Project/homePage/view/logo.png" alt="Logo" style="width: 100%; height: 100%; transform: translateY(-8px);"></p>
                     <?php if(!isset($_SESSION["user_id"])){ ?>
-                        <a href="../Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white " >Log in</a>
-                        <a href="../Registration/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Register</a>
-                        <a href="../Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a> 
-                        <a href="../contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+                        <a href="/PHP-PROJECT/Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white " >Log in</a>
+                        <a href="/PHP-PROJECT/Registration/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Register</a>
+                        <a href="/PHP-PROJECT/Login/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a> 
+                        <a href="/PHP-PROJECT/contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
                     <?php }else if( isset($_SESSION["user_id"]) && $_SESSION["user_type"] =='recruiter'){ ?>
-                        <a href="../addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a>
+                        <a href="/PHP-PROJECT/homePage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Job Offers</a>
+                        <a href="/PHP-PROJECT/addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add Job Offer</a>
                         <a href="/PHP-PROJECT/RecruiterPage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">My jobs</a>
-                        <a href="../contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+                        <a href="/PHP-PROJECT/contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
                     <?php }else if( isset($_SESSION["user_id"]) && $_SESSION["user_type"] =='job_seeker'){ ?>
-                        <a href="../contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+                        <a href="/PHP-PROJECT/homePage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Home</a>
+                        <a href="/PHP-PROJECT/contact/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
                     <?php } else if(isset($_SESSION["user_id"]) && $_SESSION["user_type"] =="admin") { ?>
                         <a href="/PHP-PROJECT/Admin Dashboard/homepage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">Home</a>
-                        <a href="/PHP-PROJECT/Admin Dashboard/Joboffers/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Job Offers</a>
+                        <a href="/PHP-PROJECT/homePage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Job Offers</a>
                         <a href="/PHP-PROJECT/Admin Dashboard/addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add job offer</a>
                         <div class="w3-dropdown-hover w3-hide-small">
                             <button class="w3-button" title="Notifications">Users <i class="fa fa-caret-down"></i></button>     
                             <div class="w3-dropdown-content w3-card-4 w3-bar-block">
-                            <a href="../users?type=Recruiters" class="w3-bar-item w3-button">Recruiters</a>
-                            <a href="../users?type=Jobseekers" class="w3-bar-item w3-button">Job Seekers</a>
+                            <a href="/PHP-PROJECT/Admin Dashboard/users?type=Recruiters" class="w3-bar-item w3-button">Recruiters</a>
+                            <a href="/PHP-PROJECT/Admin Dashboard/users?type=Jobseekers" class="w3-bar-item w3-button">Job Seekers</a>
                         </div>
                     </div>
                     <?php } ?> 

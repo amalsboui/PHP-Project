@@ -1,8 +1,10 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <title>Contact Us</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../repeated_files/search.js"></script>
 
 <?php 
   include("../homePage/view/header.php"); 

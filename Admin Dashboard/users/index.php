@@ -16,6 +16,7 @@ if (!isset($_SESSION["authenticated"])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <script src="../../repeated_files/search_admin.js"></script>
 
    
     <?php include("../../homePage/view/header.php"); ?> 
@@ -36,11 +37,6 @@ if (!isset($_SESSION["authenticated"])) {
                     <div class="row">
                         <div class="col-12">
                             <div class="row no-gutters">
-                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option>Location</option>
-                                    </select>
-                                </div>
                                 <div class="col-lg-8 col-md-6 col-sm-12 p-0">
                                     <input type="text" placeholder="Search..." class="form-control" id="search" name="search">
                                 </div>

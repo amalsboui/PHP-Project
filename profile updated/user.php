@@ -1,37 +1,35 @@
 <?php
-var_dump($_SESSION);
-    $pdo = connectDB::getInstance();
+    function getUser($pdo, $id_user){
     if ($_SESSION['user_type']=='admin') {
-        try {         
-            if(isset($_GET['id'])) {
-                $id_user = $_GET["id"];
-            
-                $query = "SELECT * FROM users WHERE id_user =:id";
+        try {                 
+                $query = "SELECT * FROM users WHERE id_user =:id_user";
                 $statement = $pdo->prepare($query);
-                $statement->bindParam(":id",$id_user);
+                $statement->bindParam(":id_user",$id_user);
                 $statement->execute();
                 $user = $statement->fetch(PDO::FETCH_ASSOC);
     
                 if (!$user) {
                     die("User not found");
                 }
-
+                return $user;
             }
-        } catch (PDOException $e) {
+         catch (PDOException $e) {
             die("Query failed: " . $e->getMessage());
         }
     }
     else{
         try{
-            $id=$_SESSION["user_id"];
-            $query=" SELECT * FROM users WHERE id_user =:id";
+            $id_user=$_SESSION["user_id"];
+            $query=" SELECT * FROM users WHERE id_user =:id_user";
             $statement = $pdo->prepare($query);
-            $statement->bindParam(":id",$id);
+            $statement->bindParam(":id_user",$id_user);
             $statement->execute();
             $user = $statement->fetch(PDO::FETCH_ASSOC);
+            return $user;
         }
         catch(PDOException $e){
             die("Query failed: " . $e->getMessage());
         }
 
     }
+}

@@ -9,10 +9,10 @@
 <body>
 
 <div class="container">
-  <?php 
+  <?php /*
   if (!isset($_SESSION["user_id"])){
-    header("Location:../HomePage");
-} 
+    header("Location:../Login/index.php");
+} */
    ?>
   <h2>Apply Now</h2>
   <form action="application.php?id_job=". method="post" enctype="multipart/form-data">
@@ -23,7 +23,7 @@
     <div class="form-group">
       <label for="pdf">Upload Your Cv :</label>
       <input type="file" id="CV" name="CV" accept=".pdf">
-      <input type="hidden" name="id_job" value=<?php echo$_POST['id_job'];?>>
+      <input type="hidden" name="id_job" value=<?php echo $_POST['id_job'];?>>
 
     </div>
     <button type="submit" class="btn-submit">Apply Now </button>

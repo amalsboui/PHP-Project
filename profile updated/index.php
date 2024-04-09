@@ -1,19 +1,20 @@
 <?php
 session_start();
 include '../repeated_files/connexion_db.php';
+$pdo = connectDB::getInstance();
+if($_SESSION['user_type']=='admin')
+    $id_user = $_GET["id"];
+else{
+    $id_user=$_SESSION['user_id'];
+}
 include 'user.php';
-
-/*
-if (isset($_SESSION['lastInsertedId'])){
-$lastInsertedId=$_SESSION['lastInsertedId'];
-$user= getuserbyId($lastInsertedId,$pdo);
-}*/
+$user=getUser($pdo, $id_user);
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <!-- Font Awesome -->
@@ -26,16 +27,11 @@ $user= getuserbyId($lastInsertedId,$pdo);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="../repeated_files/search.js"></script>
 
 
-    <?php
-        /*if ($_SESSION['user_type']=='admin') {
-            include("../homePage/view/header_admin.php");
-        } else {
-            include("../homePage/view/header.php");
-        }*/
-        include("../homePage/view/header.php");
-    ?>
+
+    <?php include("../homePage/view/header.php"); ?>
     <?php include_once "../repeated_files/connexion_db.php";?>
     <?php include_once '../homePage/view/search_filter.php';?>
 </head>
@@ -45,7 +41,7 @@ $user= getuserbyId($lastInsertedId,$pdo);
     <div class="col-md-10 mt-5 pt-5">
         <div class="row z-depth-3">
             <div class="col-sm-4 bg-custom-3 rounded-left">
-                <div class="card-block text-center ">
+                <div class="card-block text-center text-white">
                     
                     <label for="avatar">
                         <?php
@@ -66,7 +62,7 @@ $user= getuserbyId($lastInsertedId,$pdo);
                             echo $user['job'];
                         }?>
                     <form method="post">
-                        <a href="form.php" class="btn btn-primary">
+                        <a href="form.php?id=<?php echo $user['id_user']; ?>" class="btn btn-primary">
                             Edit Profile
                         </a>
                     </form>
@@ -74,6 +70,7 @@ $user= getuserbyId($lastInsertedId,$pdo);
                             if($_SESSION["user_type"] == "admin") {
                                 echo '<form action="delete_user.php" method="post">
                                     <input type="hidden" name="id" value="' . $user['id_user'] . '">
+                                    <input type="hidden" name="user_type" value="' . $user['user_type'] . '">
                                     <button type="submit" class="btn btn-danger" title="Delete User">
                                         <i class="fas fa-trash fa-x text-gray-300"></i>
                                         Delete User
@@ -85,7 +82,7 @@ $user= getuserbyId($lastInsertedId,$pdo);
             </div>
             <div class="col-sm-8 bg-white rounded-right">
                 <h3 class="mt-3 text-center">Profile</h3>
-                <hr class="badge-primary ">
+                <hr class="badge-primary mt-0 w-25">
                 <div class="row">
                     <div class="col-sm-6">
                         <p class="font-weight-bold">Email :</p>
@@ -95,7 +92,7 @@ $user= getuserbyId($lastInsertedId,$pdo);
                         ?>
                     </div>
                     <div class="col-sm-6">
-                        <p class="font-weight-bold">Ville :</p>
+                        <p class="font-weight-bold">City :</p>
                         <?php
                         if($user['city']){
                             echo $user['city'];
@@ -103,22 +100,22 @@ $user= getuserbyId($lastInsertedId,$pdo);
                     </div>
                 </div>
                 <?php
-                if($_SESSION){
-                    if($_SESSION['user_type']=="job_seeker"){
+                if($user){
+                    if($user['user_type']=="job_seeker"){
                 echo "<h4 class='mt-3'>Projects done before:</h4>";
                 echo "<hr class='bg-primary'>";
                  echo $user['info_personnelles']; }
                 else{
-                    echo "<h4 class='mt-3'> Current Company:</h4>";
-                    echo "<hr class='bg-primary mt-0 w-25 '>";
+                    echo "<h4 class='mt-3'> Entreprise :</h4>";
+                    echo "<hr class='bg-primary'>";
                     echo $user['info_personnelles'];
                 }}
                         ?>
             </div>
-        </div> 
+        </div>
     </div>
 </div>
 </main>
-<?php //include_once '../homePage/view/footer.php';?>
+<?php include_once '../homePage/view/footer.php';?>
 </body>
 </html>

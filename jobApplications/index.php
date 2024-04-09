@@ -11,11 +11,19 @@
 <script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </script>
+<script src="../repeated_files/search.js"></script>
 <body>
+
     
-   <?php include("../homePage/view/header.php");  
+   <?php include("../homePage/view/header.php");  ?>
+
+   <div class="d-sm-flex align-items-center justify-content-between mb-4 ml-4">
+        <h1 class="h3 mb-0 text-gray-800 mt-5 mb-3">Applications </h1>
+    </div>
+
+   <?php
    if(isset($_POST["id_job"])) {?>
-    <?php  require_once"applications_db.php";
+    <?php  require_once "applications_db.php";
     $id_job=$_POST["id_job"];
     $applications=get_applications($id_job);
     if(count($applications)>0){

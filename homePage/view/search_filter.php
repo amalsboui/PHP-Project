@@ -1,13 +1,13 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
     try {
+        
         $pdo = connectDB::getInstance();
 
         $query = "SELECT * FROM jobs WHERE 1";
 
         if(isset($_GET["search"])) {
             $search = $_GET["search"];
-
             $query .= " AND (position LIKE :search OR category LIKE :search OR employment_type LIKE :search OR description LIKE :search OR entreprise LIKE :search OR location LIKE :search)";
         }
 

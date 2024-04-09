@@ -34,7 +34,6 @@
 
 
     //Search 
-    //lfilter commentithom pour le moment baad tw nrak7hom
     
     if ($_SERVER["REQUEST_METHOD"] === "GET") {
         try {
@@ -53,40 +52,13 @@
 
                     $query .= " AND (name LIKE :search OR last_name LIKE :search OR city LIKE :search OR job LIKE :search )";
                 }
-    /*
-                if(isset($_GET["category"], $_GET["employment_type"], $_GET["location"])) {
-                    $category = $_GET["category"];
-                    $employment_type = $_GET["employment_type"];
-                    $location = $_GET["location"];
-
-                    if ($employment_type !== "all") {
-                        $query .= " AND employment_type = :employment_type";
-                    }
-                    if (!empty($location)) {
-                        $query .= " AND location LIKE :location";
-                    }
-                    if ($category !== "all") {
-                        $query .= " AND category = :category";
-                    }
-                }
-    */
+    
                 $statement = $pdo->prepare($query);
 
                 if(isset($_GET["search"])) {
                     $statement->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
                 }
 
-            /*  if(isset($_GET["category"], $_GET["employment_type"], $_GET["location"])) {
-                    if ($employment_type !== "all") {
-                        $statement->bindValue(':employment_type', $employment_type);
-                    }
-                    if (!empty($location)) {
-                        $statement->bindValue(':location', '%' . $location . '%');
-                    }
-                    if ($category !== "all") {
-                        $statement->bindValue(':category', $category);
-                    }
-                }*/
             $statement->execute();
             $users = $statement->fetchAll(PDO::FETCH_ASSOC);
             }else{
