@@ -39,8 +39,8 @@ function calculate_time($created)
             <li class="list-group-item w3-theme-l5"><?php echo("🧱".$job["entreprise"] )?></li>
             <li class="list-group-item w3-theme-l5"><?php echo("📍".$job["location"] )?></li>
           </ul>
-        
-          <a href="/PHP-PROJECT/jobdetails/index.php?id=<?php echo $job['id_job']; ?>" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">See More</a>
+        <!-- chanit href-->
+          <a href="../jobdetails/index.php?id=<?php echo $job['id_job']; ?>" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">See More</a>
         
         </div>
 

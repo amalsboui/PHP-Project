@@ -9,8 +9,13 @@
 <body>
 
 <div class="container">
+  <?php 
+  if (!isset($_SESSION["user_id"])){
+    header("Location:../HomePage");
+} 
+   ?>
   <h2>Apply Now</h2>
-  <form action="application.php" method="post" enctype="multipart/form-data">
+  <form action="application.php?id_job=". method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="texte">Cover Letter :</label>
       <textarea id="CL" name="CL" rows="4" cols="50"></textarea>
@@ -18,6 +23,8 @@
     <div class="form-group">
       <label for="pdf">Upload Your Cv :</label>
       <input type="file" id="CV" name="CV" accept=".pdf">
+      <input type="hidden" name="id_job" value=<?php echo$_POST['id_job'];?>>
+
     </div>
     <button type="submit" class="btn-submit">Apply Now </button>
   </form>

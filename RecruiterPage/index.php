@@ -21,8 +21,11 @@
 
 <body>
 
-<?php include("jobs_recruiter_db.php");
-$userId = $_SESSION["user_id"] ;
+<?php 
+
+include("jobs_recruiter_db.php");
+
+$userId =$_SESSION["user_id"];
 $jobs=get_jobs($userId);
 
 require_once '../homePage/show_jobs.php';

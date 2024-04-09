@@ -13,10 +13,12 @@
 </script>
 <body>
     
-   <?php include("../homePage/view/header.php"); ?>  
+   <?php include("../homePage/view/header.php");  
+   if(isset($_POST["id_job"])) {?>
     <?php  require_once"applications_db.php";
     $id_job=$_POST["id_job"];
     $applications=get_applications($id_job);
+    if(count($applications)>0){
    foreach($applications as $application) {
     ?>
     <div class="card m-3 " style="display :flex">
@@ -24,12 +26,17 @@
             <h2 class="card-title"><?php echo$application["name"]." ".$application["last_name"] ?> </h5>
 
             <p class="card-text"><?php echo$application["motivation"] ?></p>
-            <?php echo'<a href="mailto:'.$application["email"].'" class="card-link">📧</a>';?>
-            <?php echo'<a href="../cvs/cv'.$id_job.$application["id_user"].'.pdf" class="card-link">see resume</a>';?>
+            <br>
+            <?php echo'<a href="mailto:'.$application["email"].'" class="card-link">📧 </a>';?>
+            <?php echo'<a href="../form application/uploads/'.$id_job.'_'.$application["id_user"].'.pdf" class="btn btn-primary" download="'.$id_job.'_'.$application["id_user"].' ">download resume</a> ';?>
 
          </div>
     </div>
-    <?php }?>
+
+    <?php }}
+    else echo'no applications found';}
+
+    ?>
 
       <!-- Footer -->
   <?php include("../homePage/view/footer.php"); ?>
