@@ -37,8 +37,8 @@ $user=getUser($pdo, $id_user);
 </head>
 <body>
 <main>
-<div class="row d-flex justify-content-center">
-    <div class="col-md-10 mt-5 pt-5">
+<div class="row d-flex justify-content-center ">
+    <div class="col-md-10 mt-5 pt-5 profile">
         <div class="row z-depth-3">
             <div class="col-sm-4 bg-custom-3 rounded-left">
                 <div class="card-block text-center text-white">
@@ -116,6 +116,6 @@ $user=getUser($pdo, $id_user);
     </div>
 </div>
 </main>
-<?php include_once '../homePage/view/footer.php';?>
+<?php //include_once '../homePage/view/footer.php';?>
 </body>
 </html>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="../repeated_files/search.js"></script>
     
-    <title>Document</title>
+    <title>Job Details</title>
 </head>
 <body>
     <?php include "../repeated_files/connexion_db.php" ?>
@@ -44,27 +44,27 @@
 
           <p class="card-text"><?php echo($job["description"] )?></p>
 
-          <?php if($_SESSION["user_type"] == "job_seeker" || !isset($_SESSION)){?>
+          <!-- Button apply only displayed for job seekers or in public page -->
+          <?php if((isset($_SESSION["user_type"]) && $_SESSION["user_type"] == "job_seeker") || !isset($_SESSION["user_type"])){?>
             <form action="<?php echo( isset($_SESSION) ? "../form application/index.php" : "../login/index.php" ); ?>" method="post"> 
             <input type="hidden" name="id_job" value="<?php echo $job["id_job"] ?>">
             <div class="d-flex justify-content-end">
               <button type="submit" class="btn btn-primary w3-theme-d4 align-self-end mt-auto">Apply</a>
             </div>
-            <?php }?>
+          <?php }?>
 
-            <?php
-                /*You can only see applications if you're an admin or if you are a recruiter who posted that job */
-
-                if(isset($_SESSION["user_type"]) &&  $_SESSION["user_type"] == "admin" || $job["id_recruiter"]==$_SESSION["user_id"]) { ?>
-                  <form action="../jobApplications/index.php" method="post">
-                    <input type="hidden" name="id_job" value="<?php echo $job['id_job'];?>">
-                    <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-info  align-self-end mt-auto" title="See applications">
-                              See Applications
-                        </button>
-                   </div>
-                    </form>
-              <?php  }?>
+          <?php
+            /*You can only see applications if you're an admin or if you are a recruiter who posted that job */
+            if(isset($_SESSION["user_type"]) &&  isset($_SESSION["user_id"]) && ($_SESSION["user_type"] == "admin" || $job["id_recruiter"]==$_SESSION["user_id"])) { ?>
+              <form action="../jobApplications/index.php" method="post">
+                <input type="hidden" name="id_job" value="<?php echo $job['id_job'];?>">
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-info  align-self-end mt-auto w3-theme-d4" title="See applications">
+                          See Applications
+                    </button>
+                </div>
+              </form>
+            <?php  }?>
                     
 
     </main>
