@@ -10,6 +10,7 @@ else{
 include 'user.php';
 $user=getUser($pdo, $id_user);
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +42,7 @@ $user=getUser($pdo, $id_user);
     <div class="col-md-10 mt-5 pt-5">
         <div class="row z-depth-3">
             <div class="col-sm-4 bg-custom-3 rounded-left">
-                <div class="card-block text-center text-white">
+                <div class="card-block text-center ">
                     
                     <label for="avatar">
                         <?php
@@ -82,7 +83,7 @@ $user=getUser($pdo, $id_user);
             </div>
             <div class="col-sm-8 bg-white rounded-right">
                 <h3 class="mt-3 text-center">Profile</h3>
-                <hr class="badge-primary mt-0 w-25">
+                <hr class="badge-primary">
                 <div class="row">
                     <div class="col-sm-6">
                         <p class="font-weight-bold">Email :</p>
@@ -103,11 +104,11 @@ $user=getUser($pdo, $id_user);
                 if($user){
                     if($user['user_type']=="job_seeker"){
                 echo "<h4 class='mt-3'>Projects done before:</h4>";
-                echo "<hr class='bg-primary'>";
+                echo "<hr class='bg-primary  mt-0 w-25 '>";
                  echo $user['info_personnelles']; }
                 else{
                     echo "<h4 class='mt-3'> Entreprise :</h4>";
-                    echo "<hr class='bg-primary'>";
+                    echo "<hr class='bg-primary mt-0 w-25'>";
                     echo $user['info_personnelles'];
                 }}
                         ?>
