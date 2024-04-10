@@ -53,6 +53,8 @@
             </div>
           <?php }?>
 
+          <div class="d-flex flex-direction-row justify-content-end">
+
           <?php
             /*You can only see applications if you're an admin or if you are a recruiter who posted that job */
             if(isset($_SESSION["user_type"]) &&  isset($_SESSION["user_id"]) && ($_SESSION["user_type"] == "admin" || $job["id_recruiter"]==$_SESSION["user_id"])) { ?>
@@ -64,7 +66,21 @@
                     </button>
                 </div>
               </form>
-            <?php  }?>
+          <?php  }?>
+          
+          <!-- if the user is an admin he can delete the job offer -->
+          <?php if(isset($_SESSION["user_type"]) && $_SESSION["user_type"]=="admin") { ?>
+            <form action="delete_jobOffer.php" method="post">
+                <input type="hidden" name="id_job" value="<?php echo $job['id_job'];?>">
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-info  align-self-end mt-auto btn-danger"  title="Delete Job Offer">
+                          Delete Job Offer
+                    </button>
+                </div>
+              </form>
+          <?php } ?>
+
+          </div>
                     
 
     </main>

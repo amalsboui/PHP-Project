@@ -15,16 +15,6 @@
 <?php 
 
 session_start(); 
-  /*if(isset($_SESSION["user_id"]))
-  {
-    if($_SESSION["user_type"] == 'admin') {
-        include("view/header_admin.php");
-    } else {  
-        include("view/header.php");
-    }
-  }else{
-    include("view/header.php");
-  }*/
 include("view/header.php");
 include "categories.php"; 
 ?>
@@ -72,8 +62,8 @@ include "categories.php";
 
   <hr>
 
-  <div class="w3-center">
-    <!-- Pagination -->
+  <!-- <div class="w3-center">
+    <!-- Pagination 
     <div class="w3-center w3-padding-32">
       <div class="w3-bar">
         <a href="#" class="w3-bar-item w3-button w3-hover-theme">«</a>
@@ -85,7 +75,7 @@ include "categories.php";
         <a href="#" class="w3-bar-item w3-button w3-hover-theme">»</a>
       </div>
     </div>
-  </div>
+  </div> -->
   <br>
 
 
