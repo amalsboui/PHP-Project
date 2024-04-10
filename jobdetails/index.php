@@ -77,7 +77,16 @@
                           Delete Job Offer
                     </button>
                 </div>
-              </form>
+            </form>
+
+            <form action="../form application/index.php" method="post"> 
+              <input type="hidden" name="id_job" value="<?php echo $job["id_job"] ?>">
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn  btn-warning align-self-end mt-auto">Add application</a>
+              </div>
+            </form>
+              
+              
           <?php } ?>
 
           </div>

@@ -34,11 +34,25 @@
                     <br>
                     <?php //echo'<a href="mailto:'.$application["email"].'" class="card-link">📧 </a>';?>
                     <?php echo'<a href="../form application/uploads/'.$id_job.'_'.$application["id_user"].'.pdf" class="btn btn-info  align-self-end mt-auto w3-theme-d4" download="'.$id_job.'_'.$application["id_user"].' ">Download resume</a> ';?>
+
+                    <!-- delete job application if the user is admin -->
+                    <?php if ($_SESSION["user_type"]=="admin") { ?>
+                        <form action="delete_app.php" method="post">
+                            <input type="hidden" name="id_app" value="<?php echo $application['id_app'];?>">
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-info  align-self-end mt-auto btn-danger"  title="Delete Application">
+                                    Delete Application
+                                </button>
+                            </div>
+                        </form>
+                    <?php } ?>
+
                 </div>
             </div>
+
         <?php }
         }else {?>
-        <h3>No applications found</h3>';
+        <h3>No applications found</h3>;
         <?php }?>
     <?php }?>
 

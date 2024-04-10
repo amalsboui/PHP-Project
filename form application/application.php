@@ -27,8 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         if (isset($_SESSION['user_id'])){
             $stmnt->execute([$CLETTER, $user,$job]);
             move_uploaded_file($tmpName,$pdfuploadpath);
-       
-    }
+        }
         $pdo=null;
         $stmnt=null;
         echo"<script>alert('Application done')</script>";
