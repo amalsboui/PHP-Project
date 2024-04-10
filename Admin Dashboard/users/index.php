@@ -12,7 +12,7 @@ if (!isset($_SESSION["authenticated"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Users</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
@@ -89,11 +89,20 @@ if (!isset($_SESSION["authenticated"])) {
                                             <tbody>
                                             <?php foreach($users as $user): ?>
                                                 <tr>
-                                                    <td class="align-middle">
-                                                        <div class="widget-26-job-emp-img">
-                                                            <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="Company" />
-                                                        </div>
-                                                    </td>
+                                                <td class="align-middle">
+                                                    <div class="widget-26-job-emp-img">
+                                                        <label for="avatar">
+                                                            <?php
+                                                                if ($user['image_url']){?>
+                                                                    <img src="../../profile updated/includes/uploads/<?php echo $user['image_url']; ?>" alt="Picture">
+                                                                <?php }
+                                                                else{ ?>
+                                                                    <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="Picture" />
+                                                            <?php    }
+                                                            ?> 
+                                                        </label>
+                                                    </div>
+                                                </td>
                                                     <td class="align-middle">
                                                         <div class="widget-26-job-title">
                                                             <a href="#"><?php echo $user["name"] ." ". $user["last_name"]?></a>
