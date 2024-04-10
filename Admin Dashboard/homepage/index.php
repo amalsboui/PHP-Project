@@ -1,3 +1,6 @@
+
+<!-- Password to test admin dashboard is Password123 -->
+
 <?php 
 session_start();
 
@@ -36,7 +39,7 @@ if (!isset($_SESSION["authenticated"])) {
 require_once '../../repeated_files/connexion_db.php';
 require_once 'stats.php';
 require_once '../../homePage/view/header.php';
- ?>
+?>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">

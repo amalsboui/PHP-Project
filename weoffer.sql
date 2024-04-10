@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2024 at 07:11 PM
+-- Generation Time: Apr 10, 2024 at 11:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,7 +39,8 @@ CREATE TABLE `application` (
 --
 
 INSERT INTO `application` (`id_app`, `id_job`, `id_jobseeker`, `motivation`) VALUES
-(1, 3, 1, 'I am deeply passionate about design and excited about the opportunity to bring my creativity and expertise to your company as a Designer');
+(1, 3, 1, 'I am deeply passionate about design and excited about the opportunity to bring my creativity and expertise to your company as a Designer'),
+(2, 3, 4, 'I am excited');
 
 -- --------------------------------------------------------
 
@@ -66,7 +67,8 @@ CREATE TABLE `jobs` (
 INSERT INTO `jobs` (`id_job`, `position`, `description`, `entreprise`, `location`, `employment_type`, `created_at`, `category`, `id_recruiter`) VALUES
 (1, 'Software Engineer', 'We are seeking a highly skilled and motivated Software Engineer to join our dynamic team. The ideal candidate will have strong experience in developing scalable web applications using modern technologies such as JavaScript, Node.js, and React. You will collaborate with cross-functional teams to design and implement innovative solutions that drive business growth. This is an exciting opportunity to work on cutting-edge projects in a fast-paced environment.', 'Tech Innovations Ltd', 'Bogotá, Colombia', 'Full-time', '2024-04-06 15:23:42', 'Engineering', 4),
 (2, 'Music Producer', 'Harmony Studios, a leading music production company, is seeking a talented and experienced Music Producer to join our team. The ideal candidate will have a passion for music production, a strong understanding of music theory and composition, and experience in working with artists to create high-quality recordings. You will collaborate closely with artists, engineers, and other creative professionals to bring projects to life and deliver exceptional results. This is an exciting opportunity to work on a variety of projects in a dynamic and creative environment.', 'Harmony Studios', 'Texas , USA', 'Part-time', '2024-04-06 15:41:52', 'Arts and Design', 2),
-(3, 'Designer', 'Creative Solutions Inc., a leading design agency, is seeking a talented and innovative Designer to join our team in Houston. The ideal candidate will have a passion for design, strong conceptual skills, and proficiency in graphic design software. You will collaborate with clients and team members to develop creative solutions that meet project objectives and exceed expectations. This is an exciting opportunity to showcase your creativity and contribute to a wide range of design projects in a dynamic and collaborative environment.', ' Creative Solutions', 'Houston, TX, United States', 'Full-time', '2024-04-06 15:47:14', 'Arts and Design', 2);
+(3, 'Designer', 'Creative Solutions Inc., a leading design agency, is seeking a talented and innovative Designer to join our team in Houston. The ideal candidate will have a passion for design, strong conceptual skills, and proficiency in graphic design software. You will collaborate with clients and team members to develop creative solutions that meet project objectives and exceed expectations. This is an exciting opportunity to showcase your creativity and contribute to a wide range of design projects in a dynamic and collaborative environment.', ' Creative Solutions', 'Houston, TX, United States', 'Full-time', '2024-04-06 15:47:14', 'Arts and Design', 2),
+(4, 'Cybersecurity Engineer', 'SecureTech Solutions LLC is looking for a skilled Cybersecurity Engineer to join our team. As a Cybersecurity Engineer, you will play a critical role in safeguarding our organizations systems and data from cyber threats.', 'SecureTech Solutions LLC', 'Remote', 'Internship', '2024-04-10 22:26:22', 'Engineering', 3);
 
 -- --------------------------------------------------------
 
@@ -94,13 +96,14 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_user`, `name`, `last_name`, `email`, `password`, `user_type`, `job`, `city`, `info_personnelles`, `image_url`, `created_at`) VALUES
 (1, 'Sarah', 'Martin', 'sarah.martin@gmail.com', '$2y$10$Q5T511f7ltOUcSEJ7S1y4etM/QKt0nUGGpwWF5RF4HYRE4A9KTrdC', 'job_seeker', '', '', '', '', '2024-04-06 14:48:42'),
-(2, 'Giselle', 'Carter', 'giselle.carter@gmail.com', '$2y$10$nTi3GVDHGfn1ySmP4REe9O6KrgD6A2xzaiTbid.ntCjupZFvH8T0O', 'recruiter', '', '', '', '', '2024-04-06 14:52:09'),
+(2, 'Giselle', 'Carter', 'giselle.carter@gmail.com', '$2y$10$nTi3GVDHGfn1ySmP4REe9O6KrgD6A2xzaiTbid.ntCjupZFvH8T0O', 'recruiter', '', 'Bruxelles', '', '', '2024-04-06 14:52:09'),
 (3, 'Juan', 'Martinez', 'juan.martinez@gmail.com', '$2y$10$FKBv0YRSgCxTQvj.BssKmeTWvcCzfIezrUE/VuJkbsGx8wtW0Uhem', 'recruiter', '', '', '', '', '2024-04-06 14:53:46'),
-(4, 'James', 'Lopez', 'jlopez8@gmail.com', '$2y$10$lmC98ScQFdsIhrtu5qfCR.uW.JhBrT6bwxW9xkuT2AAwhDRTnHRzq', 'job_seeker', '', '', '', 'IMG-6614203827b352.99509141.', '2024-04-06 14:55:12'),
+(4, 'James', 'Lopez', 'jlopez8@gmail.com', '$2y$10$lmC98ScQFdsIhrtu5qfCR.uW.JhBrT6bwxW9xkuT2AAwhDRTnHRzq', 'job_seeker', 'Designer', ' Roma ', 'I worked with Victoria Secret', 'IMG-6617011a1c8907.06678420.', '2024-04-06 14:55:12'),
 (5, 'Eya', 'Hammar', 'eyahammar23@gmail.com', 'Password123', 'admin', '', '', '', '', '2024-04-06 15:04:55'),
 (6, 'Amal', 'Sboui', 'amalsboui33@gmail.com', '$2y$10$lmC98ScQFdsIhrtu5qfCR.uW.JhBrT6bwxW9xkuT2AAwhDRTnHRzq', 'admin', '', '', '', '', '2024-04-06 15:06:09'),
 (7, 'Awab', 'Zemzemi', 'zemawab@gmail.com', 'Password123', 'admin', '', '', '', '', '2024-04-06 15:06:55'),
-(8, 'Yasmine', 'Elhakem', 'yasmineelhakem8@gmail.com', '$2y$10$lmC98ScQFdsIhrtu5qfCR.uW.JhBrT6bwxW9xkuT2AAwhDRTnHRzq', 'admin', '', '', '', '', '2024-04-06 15:07:29');
+(8, 'Yasmine', 'Elhakem', 'yasmineelhakem8@gmail.com', '$2y$10$lmC98ScQFdsIhrtu5qfCR.uW.JhBrT6bwxW9xkuT2AAwhDRTnHRzq', 'admin', '', '', '', '', '2024-04-06 15:07:29'),
+(9, 'Aymen', 'Sellaouti', 'aymen.sellaouti@insat.ucar.tn', '$2y$10$nTi3GVDHGfn1ySmP4REe9O6KrgD6A2xzaiTbid.ntCjupZFvH8T0O', 'admin', '', '', '', '', '2024-04-10 21:58:31');
 
 --
 -- Indexes for dumped tables
@@ -135,19 +138,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `application`
 --
 ALTER TABLE `application`
-  MODIFY `id_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_app` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_job` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
@@ -157,14 +160,14 @@ ALTER TABLE `users`
 -- Constraints for table `application`
 --
 ALTER TABLE `application`
-  ADD CONSTRAINT `id_job` FOREIGN KEY (`id_job`) REFERENCES `jobs` (`id_job`),
-  ADD CONSTRAINT `id_jobseeker` FOREIGN KEY (`id_jobseeker`) REFERENCES `users` (`id_user`);
+  ADD CONSTRAINT `id_job` FOREIGN KEY (`id_job`) REFERENCES `jobs` (`id_job`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `id_jobseeker` FOREIGN KEY (`id_jobseeker`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `jobs`
 --
 ALTER TABLE `jobs`
-  ADD CONSTRAINT `id_recruiter` FOREIGN KEY (`id_recruiter`) REFERENCES `users` (`id_user`);
+  ADD CONSTRAINT `id_recruiter` FOREIGN KEY (`id_recruiter`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -117,6 +117,6 @@ $user=getUser($pdo, $id_user);
     </div>
 </div>
 </main>
-<?php //include_once '../homePage/view/footer.php';?>
+<?php include_once '../homePage/view/footer.php';?>
 </body>
 </html>
