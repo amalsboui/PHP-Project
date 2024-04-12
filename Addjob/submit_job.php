@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
            header("Location:index.php");
             die();
         }
-        print_r($_POST);
+        //print_r($_POST);
 
         $sql="INSERT INTO jobs (position,category,employment_type,entreprise,location,description,id_recruiter) VALUES(:position,:category,:employment_type,:entreprise,:location,:description,:id_recruiter)";
         $stmt=$pdo->prepare($sql);
@@ -58,10 +58,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST")
         if($_SESSION['user_type']=='recruiter')
         {
             header("Location:../RecruiterPage/index.php");
-        }elseif($_SESSION['user_type']=='jobseeker'){
-        header("Location:../homePage/index.php");}
-        else{
-            header("../Admin Dashboard/Joboffers/index.php");
+        }elseif($_SESSION['user_type']=='admin'){
+            header("Location:../homePage/index.php");
         }
 
         $pdo=null;

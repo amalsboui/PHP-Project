@@ -53,7 +53,7 @@
                     <?php } else if(isset($_SESSION["user_id"]) && $_SESSION["user_type"] =="admin") { ?>
                         <a href="/PHP-PROJECT/Admin Dashboard/homepage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white ">Home</a>
                         <a href="/PHP-PROJECT/homePage/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Job Offers</a>
-                        <a href="/PHP-PROJECT/Admin Dashboard/addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add job offer</a>
+                        <a href="/PHP-PROJECT/Addjob/index.php" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Add job offer</a>
                         <div class="w3-dropdown-hover w3-hide-small">
                             <button class="w3-button" title="Notifications">Users <i class="fa fa-caret-down"></i></button>     
                             <div class="w3-dropdown-content w3-card-4 w3-bar-block">

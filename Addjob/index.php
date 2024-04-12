@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function check_job_errors()
 {
     if(isset($_SESSION["errors_job"]))
@@ -25,6 +25,7 @@ function check_job_errors()
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css\styles.css">
 
+<main>
 <div class="formulaire"> 
     <h1>Post a Job Offer</h1>
     <form action="submit_job.php" method="post">
@@ -60,6 +61,7 @@ function check_job_errors()
     check_job_errors();
     ?>
 </div>
+</main>
 
 <script src=../repeated_files/categories.js></script>
 </body>
