@@ -1,6 +1,6 @@
 # WeOffer
 WeOffer is a website designed to connect job seekers with job offers and provide a platform for recruiters to post job offers. 
-It features both a public homepage and an admin dashboard.
+It features a public homepage,private homepage and an admin dashboard.
 
 ## Features
 ### Public Homepage
@@ -29,3 +29,22 @@ It features both a public homepage and an admin dashboard.
 - Add, delete, and edit job offers
 - View applications for all job offers
 - Manage website settings
+
+## Database Structure
+WeOffer uses a relational database with the following tables:
+
+### Users
+- Stores information about users registered on the platform.
+
+### Jobs
+- Stores information about job listings posted by recruiters.
+
+### Applications
+- Stores information about job applications submitted by users.
+
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+- PHP
+- MySql
