@@ -32,13 +32,10 @@ It features a public homepage,private homepage and an admin dashboard.
 
 ## Database Structure
 WeOffer uses a relational database with the following tables:
-
 ### Users
 - Stores information about users registered on the platform.
-
 ### Jobs
 - Stores information about job listings posted by recruiters.
-
 ### Applications
 - Stores information about job applications submitted by users.
 
